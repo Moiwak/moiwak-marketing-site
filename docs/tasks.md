@@ -1,21 +1,21 @@
-# Marketing Site — Tasks
+# Marketing Site - Tasks
 
-Populated as brainstorming produces concrete decisions. Empty until the marketing site spec is approved.
+Active work items. Future ideas go in `backlog.md`.
 
-## Pre-scaffolding
+## Done
 
 - [x] Confirm final project name + domain (Moiwak, moiwak.com)
+- [x] Scaffold Next.js 16 project (TypeScript, Tailwind v4, shadcn/ui, Zod v4, motion, Prettier, Playwright)
+- [x] Initialize git repo, push to github.com/Moiwak/moiwak-marketing-site
+
+## Up next
+
+- [ ] Connect Vercel project (blocked on Vercel account - needs phone verification, resuming 2026-04-26)
 - [ ] Receive brand assets from the designer
-- [ ] Run the marketing site brainstorm session → populate `spec.md`
+- [ ] Run the marketing site brainstorm session - populate `spec.md`
 
-## Scaffolding (after the above)
+## Later (after brainstorm)
 
-- [ ] `pnpm create next-app` with TypeScript, Tailwind, App Router
-- [ ] Install shadcn/ui primitives
-- [ ] Configure ESLint + Prettier (with Tailwind plugin)
-- [ ] Add `.env.example`
-- [ ] Initialise git repo on the `personal` GitHub alias
-- [ ] Connect a Vercel project
 - [ ] Set up Resend account + domain verification
 - [ ] Configure SPF / DKIM / DMARC on the domain
 - [ ] Set up PostHog + GA4 + Sentry
