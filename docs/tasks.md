@@ -10,7 +10,7 @@ Active work items. Future ideas go in `backlog.md`.
 
 ## Up next
 
-- [ ] Connect Vercel project (blocked on Vercel account - needs phone verification, resuming 2026-04-26)
+- [x] Connect Vercel project - deployed and live
 - [ ] Receive brand assets from the designer
 - [ ] Run the marketing site brainstorm session - populate `spec.md`
 
