@@ -8,8 +8,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Moiwak',
-  description: 'Coming soon',
+  title: 'Moiwak Outdoor Supply',
+  description: 'Opening in Järvsö and online this summer.',
 }
 
 export default function RootLayout({
