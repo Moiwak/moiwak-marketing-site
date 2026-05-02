@@ -3,7 +3,7 @@ export default function Home() {
     <main className="flex flex-1 items-center justify-center px-6">
       <div className="text-center">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          Moiwak Outdoor Supply.
+          Moiwak Outdoor Supply
         </h1>
         <p className="mt-6 text-lg text-neutral-600 sm:text-xl">
           Opening in Järvsö and online this summer.
