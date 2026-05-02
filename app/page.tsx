@@ -16,7 +16,7 @@ export default function Home() {
           </p>
           <p>
             <a href="tel:+46702718784" className="hover:text-neutral-900">
-              +46 070 271 87 84
+              +46 070-271 87 84
             </a>
           </p>
         </div>
