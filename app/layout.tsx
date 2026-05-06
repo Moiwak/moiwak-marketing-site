@@ -4,6 +4,10 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Moiwak Outdoor Supply',
   description: 'Opening in Järvsö and online this summer.',
+  formatDetection: {
+    telephone: false,
+    email: false,
+  },
 }
 
 export default function RootLayout({
