@@ -17,7 +17,7 @@ export default function Home() {
           <img
             src="/logo/Moiwak_Logo_Black_-Beta.svg"
             alt="Moiwak Outdoor Supply"
-            className="h-24 w-auto -translate-x-2 sm:order-last sm:h-27 sm:-translate-y-2 sm:translate-x-9 lg:h-33"
+            className="h-24 w-auto translate-x-0 sm:order-last sm:h-27 sm:-translate-y-2 sm:translate-x-3 lg:h-33"
           />
 
           <div className="-translate-x-4 text-center font-mono sm:translate-x-0 text-xs font-light leading-[1.35] text-black sm:flex sm:items-start sm:gap-24 sm:text-left sm:text-sm">
