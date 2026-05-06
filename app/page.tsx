@@ -22,7 +22,7 @@ export default function Home() {
 
           <div className="-translate-x-4 text-center font-mono sm:translate-x-0 text-xs font-light leading-[1.35] text-black sm:flex sm:items-start sm:gap-24 sm:text-left sm:text-sm">
             <div className="hidden underline decoration-black/30 underline-offset-2 sm:block">
-              <p>info@moiwak.com</p>
+              <p><a href="mailto:info@moiwak.com" className="no-underline">info@moiwak.com</a></p>
               <p>+46 070-271 87 84</p>
             </div>
             <div>
