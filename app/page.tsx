@@ -33,7 +33,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 p-8 text-center font-mono text-xs font-light leading-[1.35] text-black sm:hidden">
+      <div className="absolute inset-x-0 bottom-0 -translate-x-2 p-8 text-center font-mono text-xs font-light leading-[1.35] text-black sm:hidden">
         <div className="underline decoration-black/30 underline-offset-2">
           <p>info@moiwak.com</p>
           <p>+46 070-271 87 84</p>
