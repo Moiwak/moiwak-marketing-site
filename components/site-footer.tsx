@@ -3,7 +3,7 @@ export function SiteFooter() {
     <footer
       id="contact"
       className="scroll-mt-16 px-6 py-16 text-black sm:px-10 sm:py-24 lg:px-14"
-      style={{ backgroundColor: '#DCE2E5' }}
+      style={{ backgroundColor: '#E3E8EB' }}
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-12 sm:flex-row sm:items-end sm:justify-between">
         <div className="font-mono text-xs font-light leading-[1.5] sm:text-sm">
