@@ -4,7 +4,6 @@ import { SiteFooter } from '@/components/site-footer'
 
 const productPhotos = [
   { src: '/axe.jpg', alt: 'Axe' },
-  { src: '/bag_mw.jpg', alt: 'Moiwak bag' },
   { src: '/blanket-black_white.jpg', alt: 'Black and white blanket' },
   { src: '/hydration_sticks.jpg', alt: 'Hydration sticks' },
   { src: '/protein-bar.jpg', alt: 'Protein bar' },
@@ -175,14 +174,14 @@ export default function Home() {
 
         {/* Photo strip */}
         <section aria-label="Product photos" className="bg-neutral-100">
-          <ul className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-6">
+          <ul className="grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-5">
             {productPhotos.map((photo) => (
-              <li key={photo.src} className="relative aspect-[4/5] overflow-hidden bg-neutral-200">
+              <li key={photo.src} className="relative aspect-square overflow-hidden bg-neutral-200">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
+                  sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
                   className="object-cover"
                 />
               </li>
