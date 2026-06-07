@@ -106,8 +106,6 @@ export default function Home() {
         >
           <div className="mx-auto max-w-6xl">
             <h2 className="font-sans text-5xl font-black leading-[0.95] tracking-tight text-black sm:text-6xl lg:text-7xl">
-              Moiwak
-              <br />
               An introduction
             </h2>
 
