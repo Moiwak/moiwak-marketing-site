@@ -84,7 +84,8 @@ export function SiteFooter() {
   return (
     <footer
       id="contact"
-      className="scroll-mt-16 bg-neutral-100 pt-(--section-y) pb-12 px-(--section-x) text-black"
+      className="scroll-mt-16 pt-(--section-y) pb-12 px-(--section-x) text-black"
+      style={{ backgroundColor: '#F0F1F2' }}
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-12 sm:flex-row sm:items-end sm:justify-between">
         <div className="font-mono text-xs font-light leading-[1.5] sm:text-sm">
