@@ -147,7 +147,7 @@ export default function Home() {
         </section>
 
         {/* The Concept */}
-        <section className="bg-neutral-100 px-6 py-20 sm:px-10 sm:py-32 lg:px-14">
+        <section className="bg-neutral-100 px-6 pb-20 sm:px-10 sm:pb-32 lg:px-14">
           <div className="mx-auto max-w-6xl">
             <h2 className="max-w-4xl font-sans text-4xl font-black leading-[0.95] tracking-tight text-black sm:text-5xl lg:text-6xl">
               Curated around one idea: the things worth carrying.
