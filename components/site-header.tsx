@@ -20,6 +20,14 @@ export function SiteHeader() {
           </li>
           <li>
             <a
+              href="#brands"
+              className="underline decoration-black/30 underline-offset-2 hover:decoration-black"
+            >
+              Brands
+            </a>
+          </li>
+          <li>
+            <a
               href="#contact"
               className="underline decoration-black/30 underline-offset-2 hover:decoration-black"
             >
