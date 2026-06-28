@@ -37,47 +37,9 @@ function YoutubeIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-function SnapchatIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M12 3c2.8 0 5 2.2 5 5v3c0 .8.4 1.5 1.1 1.9l1.4.8c.4.2.5.7.2 1l-1.5 1.5c-.3.3-.4.6-.4 1l.1.7c.1.5-.3 1-.8 1l-1.6.1c-.4 0-.7.2-.9.5l-.9 1.3c-.3.4-.8.5-1.2.3L12 19l-1.5.8c-.4.2-.9.1-1.2-.3l-.9-1.3c-.2-.3-.5-.5-.9-.5l-1.6-.1c-.5 0-.9-.5-.8-1l.1-.7c0-.4-.1-.7-.4-1l-1.5-1.5c-.3-.3-.2-.8.2-1l1.4-.8c.7-.4 1.1-1.1 1.1-1.9V8c0-2.8 2.2-5 5-5z" />
-    </svg>
-  )
-}
-
-function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  )
-}
-
 const socials: { label: string; href: string; Icon: ComponentType<SVGProps<SVGSVGElement>> }[] = [
   { label: 'Instagram', href: 'https://instagram.com/moiwak', Icon: InstagramIcon },
   { label: 'YouTube', href: 'https://youtube.com/@moiwak', Icon: YoutubeIcon },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/moiwak', Icon: LinkedinIcon },
-  { label: 'Snapchat', href: 'https://snapchat.com/add/moiwak', Icon: SnapchatIcon },
 ]
 
 export function SiteFooter() {
@@ -87,44 +49,70 @@ export function SiteFooter() {
       className="scroll-mt-16 pt-(--section-y) pb-12 px-(--section-x) text-black"
       style={{ backgroundColor: '#F0F1F2' }}
     >
-      <div className="mx-auto flex max-w-6xl flex-col gap-12 sm:flex-row sm:items-end sm:justify-between">
-        <div className="font-mono text-xs font-light leading-[1.5] sm:text-sm">
-          <p className="mb-6 text-neutral-500">Contact</p>
-          <div className="underline decoration-black/30 underline-offset-2">
-            <p>
-              <a href="mailto:info@moiwak.com" className="no-underline">
-                info@moiwak.com
-              </a>
-            </p>
-            <p>+46 070-271 87 84</p>
-          </div>
-          <div className="mt-6 not-italic">
-            <p>Stenegård, Järvsö</p>
-            <p>Opening July 2026</p>
+      <div className="mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 gap-12 font-mono text-xs font-light leading-[1.5] sm:grid-cols-3 sm:gap-10 sm:text-sm">
+          <div>
+            <img
+              src="/logo/Moiwak_Logo_Black_-Beta.svg"
+              alt="Moiwak"
+              className="h-12 w-auto"
+            />
           </div>
 
-          <ul className="mt-8 flex items-center gap-5">
-            {socials.map(({ label, href, Icon }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  aria-label={label}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="block text-black/70 transition-colors hover:text-black"
-                >
-                  <Icon className="h-5 w-5" />
+          <div>
+            <p className="mb-3 text-neutral-500">Kontakta oss</p>
+            <p>Moiwak Outdoor Supply</p>
+            <p>Stenegård 1, 827 54 Järvsö</p>
+            <div className="mt-2 underline decoration-black/30 underline-offset-2">
+              <p>Tel: 070-271 87 84</p>
+              <p>
+                <a href="mailto:info@moiwak.com" className="no-underline">
+                  info@moiwak.com
                 </a>
-              </li>
-            ))}
-          </ul>
+              </p>
+            </div>
+
+            <ul className="mt-4 flex items-center gap-5">
+              {socials.map(({ label, href, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    aria-label={label}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="block text-black/70 transition-colors hover:text-black"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-3 text-neutral-500">Öppettider</p>
+            <p>Juli och augusti: varje dag 11.00-16.00 samt till senare under eventkvällar på Stenegård.</p>
+            <p className="mt-3">Webshop lanseras under augusti.</p>
+
+            <p className="mt-8 mb-3 text-neutral-500">Hitta hit</p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Stenegård+1,+827+54+Järvsö"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Stenegård 1 in Google Maps"
+              className="block w-full overflow-hidden border border-black/10"
+            >
+              <iframe
+                title="Moiwak location, Stenegård 1, Järvsö"
+                src="https://www.google.com/maps?q=Stenegård+1,+827+54+Järvsö&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-56 w-full grayscale contrast-110"
+              />
+            </a>
+          </div>
         </div>
 
-        <img
-          src="/logo/Moiwak_Logo_Black_-Beta.svg"
-          alt="Moiwak"
-          className="h-8 w-auto self-start sm:self-end"
-        />
       </div>
 
       <div className="mx-auto mt-16 max-w-6xl border-t border-black/10 pt-6 font-mono text-[10px] font-light text-neutral-500">
