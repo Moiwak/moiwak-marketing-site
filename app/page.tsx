@@ -206,7 +206,7 @@ export default function Home() {
         </section>
 
         {/* Brands */}
-        <section id="brands" className="relative scroll-mt-16 bg-white py-12 lg:py-16">
+        <section id="brands" className="relative flex h-dvh scroll-mt-16 flex-col justify-center bg-white py-12 lg:py-16">
           {/* Vertical gridlines layer — full section height, passes behind heading */}
           <div
             aria-hidden
@@ -266,96 +266,109 @@ export default function Home() {
         )}
 
         {/* Go Ghost */}
-        <section id="go-ghost" className="scroll-mt-16 px-(--section-x)">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-              <div className="space-y-6 lg:order-first">
-                <h2 className="font-sans text-4xl font-black leading-[0.95] tracking-tight text-black sm:text-5xl lg:text-6xl">
-                  Moiwak. Go ghost.
-                </h2>
+        <section id="go-ghost" className="relative h-dvh w-full overflow-hidden bg-black">
+          <video
+            src="/videos/hero-placeholder.mp4"
+            autoPlay
+            muted
+            playsInline
+            loop
+            className="absolute inset-0 h-full w-full object-cover"
+          />
 
-                <div className="space-y-4 font-mono text-xs font-light leading-[1.55] text-black sm:text-sm">
-                  <p>Försvinn in i skogen, bergen och sjöarna.</p>
-                  <p>In i vildmarkens vidder, vindar och vyer.</p>
-                  <p>Uppslukas av äventyret eller av en stilla stund vid tjärnen.</p>
-                  <p>Förlora dig i löpningen på stigen eller välj vägen minst vandrad.</p>
-                  <p>Hänge dig åt cyklingen på gruset utmed älven.</p>
-                  <p>Eller bemästra den med en kajak.</p>
-                  <p>Njut av åkning, utför berget, eller av toppturen upp.</p>
-                  <p>Försvinn i sällskap eller in i dig själv.</p>
-                  <p>Försjunk i dina tankar eller i samtalen kring elden.</p>
-                  <p>Gå till sömns under bar himmel eller in i tältet.</p>
-                  <p>
-                    Omfamna kylan eller vänd tillbaka till stugan insvept i en filt med en kaffe
-                    vid kaminen.
-                  </p>
-                  <p>Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter.</p>
-                  <p>Hänförs av naturens närvaro, mystik och magi.</p>
-                  <p>Se bara till att ta med dig rätt kläder, utrustning och proviant.</p>
-                </div>
+          <div className="relative flex h-full items-center justify-between px-(--section-x)">
+            <h2 className="font-sans text-5xl font-normal leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Go Ghost
+            </h2>
+
+            <div className="space-y-6 text-center font-mono text-xs font-light leading-[1.6] text-white sm:text-sm">
+              <div>
+                <p>Försvinn in i skogen, bergen och sjöarna.</p>
+                <p>In i vildmarkens vidder, vindar och vyer.</p>
+                <p>Uppslukas av äventyret eller av en stilla stund vid tjärnen.</p>
+                <p>Förlora dig i löpningen på stigen eller välj vägen minst vandrad.</p>
+                <p>Hänge dig åt cyklingen på gruset utmed älven.</p>
+                <p>Eller bemästra den med en kajak.</p>
               </div>
 
-              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-200 lg:aspect-auto">
-                <Image
-                  src="/images/general/jessica_lake.jpeg"
-                  alt="Jessica vid sjön"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
+              <div>
+                <p>Njut av åkning, utför berget, eller av toppturen upp.</p>
+                <p>Försvinn i sällskap eller in i dig själv.</p>
+                <p>Försjunk i dina tankar eller i samtalen kring elden.</p>
+              </div>
+
+              <div>
+                <p>Gå till sömns under bar himmel eller in i tältet.</p>
+                <p>
+                  Omfamna kylan eller vänd tillbaka till stugan insvept i en filt med en kaffe vid
+                  kaminen.
+                </p>
+              </div>
+
+              <div>
+                <p>Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter.</p>
+                <p>Hänförs av naturens närvaro, mystik och magi.</p>
+              </div>
+
+              <div>
+                <p>Se bara till att ta med dig rätt kläder, utrustning och proviant.</p>
               </div>
             </div>
+
+            <img
+              src="/logo/Moiwak_Logo_White_-Beta.svg"
+              alt=""
+              aria-hidden
+              className="h-12 w-auto sm:h-14 lg:h-16"
+            />
           </div>
         </section>
 
         {/* Community */}
-        <section id="community" className="scroll-mt-16 px-(--section-x)">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="font-sans text-4xl font-black leading-[0.95] tracking-tight text-black sm:text-5xl lg:text-6xl">
-              Community.
+        <section id="community" className="relative h-dvh w-full bg-white">
+          <div className="flex h-full items-center gap-4 overflow-x-auto pl-(--section-x)">
+            <h2 className="shrink-0 pr-6 font-sans text-4xl font-normal leading-none tracking-tight text-black sm:pr-8 lg:pr-12 lg:text-5xl xl:text-6xl">
+              Community
             </h2>
 
-            <div className="mt-16 space-y-16">
-              {communitySeasons.map((season) => (
-                <div
-                  key={season.season}
-                  className="grid grid-cols-1 gap-10 sm:grid-cols-[160px_1fr] sm:gap-12 lg:gap-16"
+            {communitySeasons
+              .flatMap((season) => season.events.map((event) => ({ ...event, season: season.season })))
+              .map((event, index) => (
+                <article
+                  key={event.title}
+                  className={`flex h-[80vh] w-[22vw] shrink-0 flex-col justify-between bg-black p-6 text-white ${
+                    index === 1 ? '' : 'rounded-3xl'
+                  }`}
                 >
-                  <div className="font-mono text-xs font-light text-neutral-500 sm:text-sm">
-                    <p>{season.season}</p>
-                  </div>
-
-                  <ul className="space-y-10">
-                    {season.events.map((event) => (
-                      <li
-                        key={event.title}
-                        className="border-t border-black/10 pt-6 first:border-t-0 first:pt-0"
+                  <p className="text-center font-mono text-xs font-light text-white/80 sm:text-sm">
+                    {event.date}
+                  </p>
+                  <div className="space-y-4 text-center">
+                    <h3 className="font-sans text-2xl font-normal leading-tight tracking-tight">
+                      {event.title}
+                    </h3>
+                    <p className="font-mono text-xs font-light leading-[1.6] text-white/85 sm:text-sm">
+                      {event.body}
+                    </p>
+                    <p className="font-mono text-xs font-light sm:text-sm">
+                      <a
+                        href={event.linkHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-white/40 underline-offset-2 hover:decoration-white"
                       >
-                        <p className="font-mono text-xs font-light text-neutral-500 sm:text-sm">
-                          {event.date}
-                        </p>
-                        <h3 className="mt-1 font-mono text-xs font-bold text-black sm:text-sm">
-                          {event.title}
-                        </h3>
-                        <p className="mt-2 font-mono text-xs font-light leading-[1.55] text-black sm:text-sm">
-                          {event.body}
-                        </p>
-                        <p className="mt-2 font-mono text-xs font-light sm:text-sm">
-                          <a
-                            href={event.linkHref}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline decoration-black/30 underline-offset-2 hover:decoration-black"
-                          >
-                            {event.linkLabel}
-                          </a>
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                        {event.linkLabel}
+                      </a>
+                    </p>
+                  </div>
+                  <p className="text-center font-mono text-[10px] uppercase tracking-wider text-white/50">
+                    {event.season}
+                  </p>
+                </article>
               ))}
-            </div>
+
+            {/* Right gutter so the last card can scroll fully into view */}
+            <div className="shrink-0 pr-(--section-x)" aria-hidden />
           </div>
         </section>
 
