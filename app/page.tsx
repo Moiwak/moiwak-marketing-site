@@ -100,52 +100,107 @@ export default function Home() {
     <>
       <SiteNav />
 
-      <main id="top" className="flex flex-col gap-(--section-y) bg-neutral-100">
+      <main id="top" className="flex flex-col bg-neutral-100">
         <Hero />
 
         {/* About / Introduction */}
-        <section
-          id="about"
-          className="scroll-mt-16 px-(--section-x)"
-        >
-          <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-200 lg:order-last lg:aspect-auto">
+        <section id="about" className="scroll-mt-16 bg-[#FFF7E7]">
+          {/* Mobile: simple stack. Desktop: 12-col asymmetric grid. */}
+          <div className="flex flex-col gap-10 px-(--section-x) py-24 lg:hidden">
+            <h2 className="text-center font-sans text-4xl font-normal leading-[1.05] tracking-tight text-black">
+              Moiwak
+              <br />
+              Outdoor supply
+            </h2>
+            <p className="text-center font-mono text-xs font-light leading-[1.55] text-black">
+              Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
+              hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
+              varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
+              berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra
+              kontinenter.
+            </p>
+            <div className="relative -mx-(--section-x) aspect-[3/4] bg-neutral-200">
+              <Image src="/images/general/sunset_milsjon.jpeg" alt="" fill sizes="100vw" className="object-cover" />
+            </div>
+            <div className="relative -mx-(--section-x) aspect-[3/4] bg-neutral-200">
+              <Image src="/images/general/jessica_lake.jpeg" alt="" fill sizes="100vw" className="object-cover" />
+            </div>
+            <div className="relative -mx-(--section-x) aspect-[4/5] bg-neutral-200">
+              <Image src="/images/general/summer_landscape_jarvso.jpeg" alt="" fill sizes="100vw" className="object-cover" />
+            </div>
+            <div className="space-y-6">
+              {conceptItems.map((item) => (
+                <div key={item.title}>
+                  <h3 className="font-mono text-xs font-bold text-black">{item.title}</h3>
+                  <p className="mt-1 font-mono text-xs font-light leading-[1.55] text-black">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop grid */}
+          <div className="relative hidden grid-cols-12 gap-x-8 px-(--section-x) pt-20 pb-24 lg:grid">
+            {/* Berries — right side, near top */}
+            <div className="relative col-start-10 col-end-13 row-start-1 row-span-3 h-[60vh] w-[23vw] justify-self-end">
+              <Image
+                src="/images/general/jessica_lake.jpeg"
+                alt=""
+                fill
+                sizes="20vw"
+                className="object-cover"
+              />
+            </div>
+
+            {/* Heading */}
+            <h2 className="col-start-4 col-end-10 row-start-2 self-start text-center font-sans text-6xl font-normal leading-[1.05] tracking-tight text-black xl:text-7xl">
+              Moiwak
+              <br />
+              Outdoor supply
+            </h2>
+
+            {/* Paragraph */}
+            <p className="col-start-4 col-end-10 row-start-3 mx-auto mt-8 max-w-xl text-center font-mono text-xs font-light leading-[1.6] text-black">
+              Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
+              hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
+              varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
+              berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra
+              kontinenter.
+            </p>
+
+            {/* Waterfall + Yellow hood paired group — waterfall top aligns with second heading line; yellow hood sits to its right, overlapping bottom by ~3rem */}
+            <div className="col-start-1 col-end-10 row-start-2 row-span-4 mt-[3.5rem] flex items-start gap-4 xl:mt-[4.5rem]">
+              <div className="relative h-[60vh] w-[23vw] shrink-0">
                 <Image
                   src="/images/general/sunset_milsjon.jpeg"
-                  alt="Solnedgång över Milsjön"
+                  alt=""
                   fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="20vw"
                   className="object-cover"
                 />
               </div>
-
-              <div className="space-y-6">
-                <h2 className="font-sans text-4xl font-black leading-[0.95] tracking-tight text-black sm:text-5xl lg:text-6xl">
-                  Moiwak Outdoor Supply.
-                </h2>
-
-                <p className="font-mono text-xs font-light leading-[1.55] text-black sm:text-sm">
-                  Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
-                  hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
-                  varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
-                  berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra
-                  kontinenter.
-                </p>
-
-                <div className="space-y-6">
-                  {conceptItems.map((item) => (
-                    <div key={item.title}>
-                      <h3 className="font-mono text-xs font-bold text-black sm:text-sm">
-                        {item.title}
-                      </h3>
-                      <p className="mt-1 font-mono text-xs font-light leading-[1.55] text-black sm:text-sm">
-                        {item.body}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+              <div className="relative mt-[calc(60vh-4rem)] h-[60vh] w-[32vw] shrink-0">
+                <Image
+                  src="/images/general/summer_landscape_jarvso.jpeg"
+                  alt=""
+                  fill
+                  sizes="24vw"
+                  className="object-cover"
+                />
               </div>
+            </div>
+
+            {/* Concept text columns — starts ~25% down from top of image 3 */}
+            <div className="col-start-9 col-end-13 row-start-2 row-span-4 mt-[calc(60vh+18vh)] space-y-6">
+              {conceptItems.map((item) => (
+                <div key={item.title}>
+                  <h3 className="font-mono text-xs font-bold text-black">{item.title}</h3>
+                  <p className="mt-1 font-mono text-xs font-light leading-[1.6] text-black">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
