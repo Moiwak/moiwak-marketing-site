@@ -141,7 +141,7 @@ export default function Home() {
           </div>
 
           {/* Desktop grid */}
-          <div className="relative hidden grid-cols-12 gap-x-8 px-(--section-x) pt-20 pb-24 lg:grid">
+          <div className="relative hidden grid-cols-12 gap-x-8 px-(--section-x) pt-20 lg:grid">
             {/* Berries — right side, near top */}
             <div className="relative col-start-10 col-end-13 row-start-1 row-span-3 h-[60vh] w-[23vw] justify-self-end">
               <Image
@@ -206,28 +206,39 @@ export default function Home() {
         </section>
 
         {/* Brands */}
-        <section
-          id="brands"
-          className="scroll-mt-16 px-(--section-x)"
-        >
-          <div className="mx-auto max-w-6xl">
-            <h2 className="font-sans text-4xl font-black leading-[0.95] tracking-tight text-black sm:text-5xl lg:text-6xl">
-              Varumärken.
+        <section id="brands" className="relative scroll-mt-16 bg-white py-12 lg:py-16">
+          {/* Vertical gridlines layer — full section height, passes behind heading */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 grid grid-cols-[1.3fr_1fr_1fr_1fr_1fr_0.3fr]"
+          >
+            <div />
+            <div className="border-l border-black" />
+            <div className="border-l border-black" />
+            <div className="border-l border-black" />
+            <div className="border-l border-black" />
+            <div className="border-l border-black" />
+          </div>
+
+          <div className="relative">
+            <h2 className="text-center font-sans text-5xl font-normal leading-none tracking-tight text-black xl:text-6xl">
+              Varumärken
             </h2>
 
-            <ul className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-black/10 sm:grid-cols-3 lg:grid-cols-4">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <li
-                  key={i}
-                  className="flex aspect-[3/2] items-center justify-center bg-neutral-100"
-                >
-                  <img
-                    src="/logo/Moiwak_Logo_Black_-Beta.svg"
-                    alt="Brand logo placeholder"
-                    className="h-6 w-auto"
-                  />
-                </li>
-              ))}
+            <ul className="mt-16 grid grid-cols-[1.3fr_1fr_1fr_1fr_1fr_0.3fr]">
+              {Array.from({ length: 18 }).map((_, i) => {
+                const isEmptyColumn = i % 6 === 5
+                if (isEmptyColumn) return <li key={i} />
+                return (
+                  <li key={i} className="flex h-32 items-center justify-center p-6 lg:h-40">
+                    <img
+                      src="/logo/Moiwak_Logo_Black_-Beta.svg"
+                      alt="Brand logo placeholder"
+                      className="h-8 w-auto"
+                    />
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </section>
