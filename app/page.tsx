@@ -101,7 +101,7 @@ export default function Home() {
 
       <main id="top" className="flex flex-col gap-(--section-y) bg-neutral-100">
         {/* Hero */}
-        <section className="relative h-[85vh] w-full overflow-hidden">
+        <section className="relative h-[90vh] w-full overflow-hidden">
           <Image
             src="/images/mock/hero.jpg"
             alt="Misty forest landscape"
@@ -129,11 +129,11 @@ export default function Home() {
         {/* About / Introduction */}
         <section
           id="about"
-          className="scroll-mt-16 px-(--section-x)"
+          className="-mt-10 scroll-mt-16 px-(--section-x) lg:-mt-16"
         >
           <div className="mx-auto max-w-6xl">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-200 lg:aspect-auto">
+              <div className="relative aspect-[4/5] overflow-hidden bg-neutral-200 lg:order-last lg:aspect-auto">
                 <Image
                   src="/images/general/sunset_milsjon.jpeg"
                   alt="Solnedgång över Milsjön"
