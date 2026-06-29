@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { SiteHeader } from '@/components/site-header'
+import { Hero } from '@/components/hero'
+import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 
 const SHOW_PHOTO_STRIP = false
@@ -97,39 +98,15 @@ const sustainabilityItems = [
 export default function Home() {
   return (
     <>
-      <SiteHeader />
+      <SiteNav />
 
       <main id="top" className="flex flex-col gap-(--section-y) bg-neutral-100">
-        {/* Hero */}
-        <section className="relative h-[90vh] w-full overflow-hidden">
-          <Image
-            src="/images/mock/hero.jpg"
-            alt="Misty forest landscape"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-
-          <div className="absolute inset-0 flex items-center justify-center p-8 sm:justify-end sm:p-12 lg:p-16">
-            <div className="flex w-full flex-col items-center gap-6 sm:w-auto sm:items-end">
-              <img
-                src="/logo/Moiwak_Logo_Black_-Beta.svg"
-                alt="Moiwak Outdoor Supply"
-                className="h-24 w-auto sm:h-27 lg:h-33"
-              />
-
-              <p className="text-center font-mono text-xs font-light leading-[1.35] text-black sm:text-right sm:text-sm">
-                Stenegård, Järvsö
-              </p>
-            </div>
-          </div>
-        </section>
+        <Hero />
 
         {/* About / Introduction */}
         <section
           id="about"
-          className="-mt-10 scroll-mt-16 px-(--section-x) lg:-mt-16"
+          className="scroll-mt-16 px-(--section-x)"
         >
           <div className="mx-auto max-w-6xl">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
