@@ -180,7 +180,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative mt-[calc(60vh-4rem)] h-[60vh] w-[32vw] shrink-0">
+              <div className="relative mt-[calc(60vh-4rem)] h-[75vh] w-[32vw] shrink-0">
                 <Image
                   src="/images/general/summer_landscape_jarvso.jpeg"
                   alt=""
