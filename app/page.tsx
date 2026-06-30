@@ -170,8 +170,8 @@ export default function Home() {
                   kontinenter.
                 </p>
               }
-              bodyClassName="mx-auto mt-[84px] w-[min(38.59vw,741px)]"
-              className="absolute top-[min(20.26vw,389px)] left-1/2 w-[min(27.24vw,523px)] -translate-x-1/2 text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black"
+              bodyClassName="mt-[84px]"
+              className="absolute top-[min(20.26vw,389px)] left-1/2 w-[min(38.59vw,741px)] -translate-x-1/2 text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black"
             />
 
             {/* Waterfall — left (Figma y=457, left=80, 422x633) */}
