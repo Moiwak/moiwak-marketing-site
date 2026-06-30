@@ -385,17 +385,27 @@ export default function Home() {
                         />
                         <div
                           aria-hidden
+                          className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-black/0"
+                        />
+                        <div
+                          aria-hidden
                           className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-black/0 to-black/75"
                         />
 
-                        {/* Vertical title along the left edge, reads bottom-to-top */}
-                        <h3 className="absolute top-1/2 left-6 origin-top-left -translate-y-1/2 -rotate-90 font-sans text-3xl font-semibold leading-[0.95] tracking-tight whitespace-nowrap">
-                          {event.title}
+                        {/* Date — top of card */}
+                        <p className="relative text-center font-mono text-xs font-light text-white/90">
+                          {event.date}
+                        </p>
+
+                        {/* Title — right-aligned, 2 lines, KH Teka */}
+                        <h3 className="absolute top-1/3 right-6 font-sans text-4xl font-semibold leading-[0.95] tracking-tight text-right text-white">
+                          Klätterkurs med
+                          <br />
+                          Karin Trollin
                         </h3>
 
-                        {/* Bottom text block, ~1/3 height */}
-                        <div className="absolute right-6 bottom-6 left-20 space-y-2 font-mono text-[11px] font-light leading-[1.3] text-white">
-                          <p className="text-white/85">{event.date}</p>
+                        {/* Bottom text block — centered, ~1/3 of card */}
+                        <div className="absolute right-6 bottom-6 left-6 space-y-2 text-center font-mono text-[11px] font-light leading-[1.3] text-white">
                           <p>{event.body}</p>
                           <p>
                             <a
