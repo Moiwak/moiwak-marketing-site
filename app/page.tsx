@@ -369,17 +369,10 @@ export default function Home() {
                     }`}
                   >
                     {media?.type === 'video' && (
-                      <>
-                        <LazyVideo
-                          src={media.src}
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                        {/* Cover the baked-in Jitter free-tier watermark in the bottom-right */}
-                        <div
-                          aria-hidden
-                          className="absolute right-0 bottom-0 h-10 w-32 bg-black"
-                        />
-                      </>
+                      <LazyVideo
+                        src={media.src}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
                     )}
                     {media?.type === 'image' && (
                       <>
