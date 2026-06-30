@@ -305,8 +305,8 @@ export default function Home() {
               Go Ghost
             </h2>
 
-            {/* Paragraph (Figma y=337, left=589, w=741) */}
-            <div className="absolute top-[min(17.55vw,337px)] left-[min(30.68vw,589px)] w-[min(38.59vw,741px)] space-y-6 text-center font-mono text-xs font-light leading-[1.6] text-white sm:text-sm">
+            {/* Paragraph (Figma y=337, w=741) — gap-centered between heading and ghost */}
+            <div className="absolute top-[min(17.55vw,337px)] left-[min(36.77vw,706px)] w-[min(38.59vw,741px)] space-y-6 text-center font-mono text-xs font-light leading-[1.6] text-white sm:text-sm">
               <div>
                 <p>Försvinn in i skogen, bergen och sjöarna.</p>
                 <p>In i vildmarkens vidder, vindar och vyer.</p>
