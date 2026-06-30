@@ -385,19 +385,19 @@ export default function Home() {
                         />
                         <div
                           aria-hidden
-                          className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/0 to-black/70"
+                          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-black/0 to-black/75"
                         />
-                        <p className="relative text-center font-mono text-xs font-light text-white/90 sm:text-sm">
-                          {event.date}
-                        </p>
-                        <div className="relative space-y-4 text-center">
-                          <h3 className="font-sans text-2xl font-normal leading-tight tracking-tight">
-                            {event.title}
-                          </h3>
-                          <p className="font-mono text-xs font-light leading-[1.6] text-white/95 sm:text-sm">
-                            {event.body}
-                          </p>
-                          <p className="font-mono text-xs font-light sm:text-sm">
+
+                        {/* Vertical title along the left edge, reads bottom-to-top */}
+                        <h3 className="absolute top-1/2 left-6 origin-top-left -translate-y-1/2 -rotate-90 font-sans text-3xl font-semibold leading-[0.95] tracking-tight whitespace-nowrap">
+                          {event.title}
+                        </h3>
+
+                        {/* Bottom text block, ~1/3 height */}
+                        <div className="absolute right-6 bottom-6 left-20 space-y-2 font-mono text-[11px] font-light leading-[1.3] text-white">
+                          <p className="text-white/85">{event.date}</p>
+                          <p>{event.body}</p>
+                          <p>
                             <a
                               href={event.linkHref}
                               target="_blank"
@@ -408,9 +408,6 @@ export default function Home() {
                             </a>
                           </p>
                         </div>
-                        <p className="relative text-center font-mono text-[10px] uppercase tracking-wider text-white/70">
-                          {event.season}
-                        </p>
                       </>
                     )}
 
