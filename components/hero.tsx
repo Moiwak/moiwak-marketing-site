@@ -6,6 +6,7 @@ const TEXT = 'Outdoor Supply'
 const LOGO_DELAY_MS = 3000
 const TEXT_DELAY_MS = 6000
 const LETTER_STAGGER_MAX_S = 1.5
+const SHOW_OVERLAY = false
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -39,10 +40,10 @@ export function Hero() {
   }
 
   return (
-    <section className="relative h-dvh w-full overflow-hidden bg-black">
+    <section className="relative h-[calc(100dvh+60px)] w-full overflow-hidden bg-black">
       <video
         ref={videoRef}
-        src="/videos/hero-placeholder.mp4"
+        src="/videos/moiwak-hero.mp4"
         autoPlay
         muted
         playsInline
@@ -50,6 +51,7 @@ export function Hero() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
+      {SHOW_OVERLAY && (
       <div className="absolute inset-0 flex items-center justify-between px-8 sm:px-12 lg:px-16">
         <img
           src="/logo/Moiwak_Logo_White_-Beta.svg"
@@ -78,6 +80,7 @@ export function Hero() {
           ))}
         </p>
       </div>
+      )}
     </section>
   )
 }

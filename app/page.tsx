@@ -51,6 +51,7 @@ const communitySeasons = [
         body: 'Löpning till och från Järvsö klack. Start vid Moiwak. Fri frukost när vi kommer tillbaka och 10% rabatt i butiken hela dagen på hela sortimentet för alla som hänger med.',
         linkLabel: '@runforest',
         linkHref: 'https://instagram.com/runforest',
+        media: { type: 'video' as const, src: '/videos/jitter-run.mp4' },
       },
       {
         date: '26 juli kl 9.00-12.00',
@@ -58,6 +59,7 @@ const communitySeasons = [
         body: 'Erfarna äventyraren och klättringsguiden Karin Trolin bördig från Forsa ger en nybörjarkurs i klättring. Samling vid Järvsö Bergcykelpark klockan 9.00. Från 12 år och uppåt. 500 kronor per deltagare betalas på plats. Utrustning ingår. Anmälan direkt till karin.trollin@xxxxxx.se senast den 24 juli.',
         linkLabel: 'äventyr.se',
         linkHref: 'https://äventyr.se',
+        media: { type: 'image' as const, src: '/images/general/mountain-climber.jpg' },
       },
     ],
   },
@@ -98,10 +100,9 @@ const sustainabilityItems = [
 export default function Home() {
   return (
     <>
-      <SiteNav />
-
       <main id="top" className="flex flex-col bg-neutral-100">
         <Hero />
+        <SiteNav />
 
         {/* About / Introduction */}
         <section id="about" className="scroll-mt-16 bg-[#FFF7E7]">
@@ -120,13 +121,13 @@ export default function Home() {
               kontinenter.
             </p>
             <div className="relative -mx-(--section-x) aspect-[3/4] bg-neutral-200">
-              <Image src="/images/general/sunset_milsjon.jpeg" alt="" fill sizes="100vw" className="object-cover" />
+              <Image src="/images/general/waterfall.jpg" alt="" fill sizes="100vw" className="object-cover" />
             </div>
             <div className="relative -mx-(--section-x) aspect-[3/4] bg-neutral-200">
-              <Image src="/images/general/jessica_lake.jpeg" alt="" fill sizes="100vw" className="object-cover" />
+              <Image src="/images/general/berries.jpg" alt="" fill sizes="100vw" className="object-cover" />
             </div>
             <div className="relative -mx-(--section-x) aspect-[4/5] bg-neutral-200">
-              <Image src="/images/general/summer_landscape_jarvso.jpeg" alt="" fill sizes="100vw" className="object-cover" />
+              <Image src="/images/general/yellow-outfit.jpg" alt="" fill sizes="100vw" className="object-cover" />
             </div>
             <div className="space-y-6">
               {conceptItems.map((item) => (
@@ -141,11 +142,11 @@ export default function Home() {
           </div>
 
           {/* Desktop grid */}
-          <div className="relative hidden grid-cols-12 gap-x-8 px-(--section-x) pt-20 lg:grid">
+          <div className="relative hidden min-h-[158vh] grid-cols-12 gap-x-8 px-(--section-x) pt-20 lg:grid">
             {/* Berries — right side, near top */}
             <div className="relative col-start-10 col-end-13 row-start-1 row-span-3 h-[60vh] w-[23vw] justify-self-end">
               <Image
-                src="/images/general/jessica_lake.jpeg"
+                src="/images/general/berries.jpg"
                 alt=""
                 fill
                 sizes="20vw"
@@ -173,7 +174,7 @@ export default function Home() {
             <div className="col-start-1 col-end-10 row-start-2 row-span-4 mt-[3.5rem] flex items-start gap-4 xl:mt-[4.5rem]">
               <div className="relative h-[60vh] w-[23vw] shrink-0">
                 <Image
-                  src="/images/general/sunset_milsjon.jpeg"
+                  src="/images/general/waterfall.jpg"
                   alt=""
                   fill
                   sizes="20vw"
@@ -182,7 +183,7 @@ export default function Home() {
               </div>
               <div className="relative mt-[calc(60vh-4rem)] h-[75vh] w-[32vw] shrink-0">
                 <Image
-                  src="/images/general/summer_landscape_jarvso.jpeg"
+                  src="/images/general/yellow-outfit.jpg"
                   alt=""
                   fill
                   sizes="24vw"
@@ -206,7 +207,7 @@ export default function Home() {
         </section>
 
         {/* Brands */}
-        <section id="brands" className="relative flex h-dvh scroll-mt-16 flex-col justify-center bg-white py-12 lg:py-16">
+        <section id="brands" className="relative flex h-[130vh] scroll-mt-16 flex-col justify-between bg-white py-[15vh]">
           {/* Vertical gridlines layer — full section height, passes behind heading */}
           <div
             aria-hidden
@@ -226,19 +227,37 @@ export default function Home() {
             </h2>
 
             <ul className="mt-16 grid grid-cols-[1.3fr_1fr_1fr_1fr_1fr_0.3fr]">
-              {Array.from({ length: 18 }).map((_, i) => {
-                const isEmptyColumn = i % 6 === 5
-                if (isEmptyColumn) return <li key={i} />
-                return (
-                  <li key={i} className="flex h-32 items-center justify-center p-6 lg:h-40">
+              {[
+                { src: '/brands/r1-c1.svg', h: 65 },
+                { src: '/brands/r1-c2.png', h: 117 },
+                { src: '/brands/r1-c3.png', h: 144 },
+                { src: '/brands/r1-c4.png', h: 102 },
+                { src: '/brands/r1-c5.png', h: 130 },
+                null,
+                { src: '/brands/r2-c1.png', h: 25 },
+                { src: '/brands/r2-c2.png', h: 58 },
+                { src: '/brands/r2-c3.png', h: 85 },
+                { src: '/brands/r2-c4.png', h: 85 },
+                { src: '/brands/r2-c5.png', h: 58 },
+                null,
+                { src: '/brands/r3-c1.png', h: 129 },
+                { src: '/brands/r3-c2.png', h: 68 },
+                null,
+                null,
+                null,
+                null,
+              ].map((logo, i) => (
+                <li key={i} className="flex h-48 items-center justify-center p-6 lg:h-56">
+                  {logo && (
                     <img
-                      src="/logo/Moiwak_Logo_Black_-Beta.svg"
-                      alt="Brand logo placeholder"
-                      className="h-8 w-auto"
+                      src={logo.src}
+                      alt=""
+                      style={{ height: `${logo.h}px` }}
+                      className="w-auto max-h-full max-w-full object-contain"
                     />
-                  </li>
-                )
-              })}
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </section>
@@ -266,9 +285,9 @@ export default function Home() {
         )}
 
         {/* Go Ghost */}
-        <section id="go-ghost" className="relative h-dvh w-full overflow-hidden bg-black">
+        <section id="go-ghost" className="relative h-[115vh] w-full overflow-hidden bg-black">
           <video
-            src="/videos/hero-placeholder.mp4"
+            src="/videos/mountains-timelapse.mp4"
             autoPlay
             muted
             playsInline
@@ -316,56 +335,118 @@ export default function Home() {
             </div>
 
             <img
-              src="/logo/Moiwak_Logo_White_-Beta.svg"
+              src="/logo/ghost.svg"
               alt=""
               aria-hidden
-              className="h-12 w-auto sm:h-14 lg:h-16"
+              className="h-[120px] w-[85px]"
             />
           </div>
         </section>
 
         {/* Community */}
         <section id="community" className="relative h-dvh w-full bg-white">
-          <div className="flex h-full items-center gap-4 overflow-x-auto pl-(--section-x)">
+          <div className="flex h-full items-center gap-4 overflow-x-auto pl-(--section-x) [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <h2 className="shrink-0 pr-6 font-sans text-4xl font-normal leading-none tracking-tight text-black sm:pr-8 lg:pr-12 lg:text-5xl xl:text-6xl">
               Community
             </h2>
 
             {communitySeasons
               .flatMap((season) => season.events.map((event) => ({ ...event, season: season.season })))
-              .map((event, index) => (
-                <article
-                  key={event.title}
-                  className={`flex h-[80vh] w-[22vw] shrink-0 flex-col justify-between bg-black p-6 text-white ${
-                    index === 1 ? '' : 'rounded-3xl'
-                  }`}
-                >
-                  <p className="text-center font-mono text-xs font-light text-white/80 sm:text-sm">
-                    {event.date}
-                  </p>
-                  <div className="space-y-4 text-center">
-                    <h3 className="font-sans text-2xl font-normal leading-tight tracking-tight">
-                      {event.title}
-                    </h3>
-                    <p className="font-mono text-xs font-light leading-[1.6] text-white/85 sm:text-sm">
-                      {event.body}
-                    </p>
-                    <p className="font-mono text-xs font-light sm:text-sm">
-                      <a
-                        href={event.linkHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline decoration-white/40 underline-offset-2 hover:decoration-white"
-                      >
-                        {event.linkLabel}
-                      </a>
-                    </p>
-                  </div>
-                  <p className="text-center font-mono text-[10px] uppercase tracking-wider text-white/50">
-                    {event.season}
-                  </p>
-                </article>
-              ))}
+              .map((event, index) => {
+                const media = 'media' in event ? event.media : undefined
+                return (
+                  <article
+                    key={event.title}
+                    className={`relative flex h-[80vh] w-[22vw] shrink-0 flex-col justify-between overflow-hidden bg-black p-6 text-white ${
+                      index === 1 ? '' : 'rounded-3xl'
+                    }`}
+                  >
+                    {media?.type === 'video' && (
+                      <video
+                        src={media.src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    )}
+                    {media?.type === 'image' && (
+                      <Image
+                        src={media.src}
+                        alt=""
+                        fill
+                        sizes="22vw"
+                        className="object-cover"
+                      />
+                    )}
+
+                    {!media && event.title === 'Peters paella!' && (
+                      <div className="relative flex h-[80%] flex-col items-center justify-between text-center">
+                        <p className="font-mono text-sm font-light text-white">{event.date}</p>
+
+                        <img
+                          src="/illustrations/paella-pan.svg"
+                          alt=""
+                          aria-hidden
+                          className="w-[60%]"
+                        />
+
+                        <img
+                          src="/illustrations/paella-group.svg"
+                          alt="Peters paella"
+                          className="w-full"
+                        />
+
+                        <div className="space-y-3 px-2">
+                          <p className="font-mono text-sm font-light leading-[1.4] text-white">
+                            {event.body}
+                          </p>
+                          <p className="font-mono text-sm font-light">
+                            <a
+                              href={event.linkHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline decoration-white/60 underline-offset-2 hover:decoration-white"
+                            >
+                              {event.linkLabel}
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {!media && event.title !== 'Peters paella!' && (
+                      <>
+                        <p className="relative text-center font-mono text-xs font-light text-white/80 sm:text-sm">
+                          {event.date}
+                        </p>
+                        <div className="relative space-y-4 text-center">
+                          <h3 className="font-sans text-2xl font-normal leading-tight tracking-tight">
+                            {event.title}
+                          </h3>
+                          <p className="font-mono text-xs font-light leading-[1.6] text-white/85 sm:text-sm">
+                            {event.body}
+                          </p>
+                          <p className="font-mono text-xs font-light sm:text-sm">
+                            <a
+                              href={event.linkHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline decoration-white/40 underline-offset-2 hover:decoration-white"
+                            >
+                              {event.linkLabel}
+                            </a>
+                          </p>
+                        </div>
+                        <p className="relative text-center font-mono text-[10px] uppercase tracking-wider text-white/50">
+                          {event.season}
+                        </p>
+                      </>
+                    )}
+                  </article>
+                )
+              })}
 
             {/* Right gutter so the last card can scroll fully into view */}
             <div className="shrink-0 pr-(--section-x)" aria-hidden />

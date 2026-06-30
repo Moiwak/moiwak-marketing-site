@@ -29,7 +29,7 @@ export function SiteFooter() {
 
       <div className="flex flex-1 justify-end">
         <img
-          src="/logo/Moiwak_Logo_White_-Beta.svg"
+          src="/logo/moiwak-wordmark-white.svg"
           alt="Moiwak"
           className="h-auto w-[60vw] max-w-none"
         />
