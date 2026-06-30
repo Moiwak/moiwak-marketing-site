@@ -3,6 +3,9 @@ import { Hero } from '@/components/hero'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { LazyVideo } from '@/components/lazy-video'
+import { ParallaxImage } from '@/components/parallax-image'
+import { ParallaxFade } from '@/components/parallax-fade'
+import { HeadingReveal } from '@/components/heading-reveal'
 
 const SHOW_PHOTO_STRIP = false
 const SHOW_SUSTAINABILITY = false
@@ -143,66 +146,63 @@ export default function Home() {
           </div>
 
           {/* Desktop grid */}
-          <div className="relative hidden min-h-[158vh] grid-cols-12 gap-x-8 px-(--section-x) pt-20 lg:grid">
+          <div className="relative hidden grid-cols-12 gap-x-8 px-(--section-x) pt-[4vw] lg:grid">
             {/* Berries — right side, near top */}
-            <div className="relative col-start-10 col-end-13 row-start-1 row-span-3 h-[60vh] w-[23vw] justify-self-end">
-              <Image
-                src="/images/general/berries.jpg"
-                alt=""
-                fill
-                sizes="20vw"
-                className="object-cover"
+            <ParallaxImage
+              src="/images/general/berries.jpg"
+              sizes="22vw"
+              speed={35}
+              className="col-start-10 col-end-13 row-start-1 row-span-3 aspect-[422/632] w-[22vw] justify-self-end"
+            />
+
+            <HeadingReveal
+              main="Moiwak"
+              sub="Outdoor supply"
+              body={
+                <p className="text-center font-mono text-[14px] font-normal leading-[1.375] text-black">
+                  Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
+                  hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
+                  varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
+                  berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra
+                  kontinenter.
+                </p>
+              }
+              bodyClassName="mx-auto mt-[84px] max-w-xl"
+              className="col-start-4 col-end-10 row-start-2 row-span-2 self-start text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black"
+            />
+
+            {/* Waterfall + Yellow group */}
+            <div className="col-start-1 col-end-10 row-start-2 row-span-4 mt-[3vw] flex items-start gap-[1.25vw]">
+              <ParallaxImage
+                src="/images/general/waterfall.jpg"
+                sizes="22vw"
+                speed={25}
+                className="aspect-[422/633] w-[22vw] shrink-0"
+              />
+              <ParallaxImage
+                src="/images/general/yellow-outfit.jpg"
+                sizes="30vw"
+                speed={40}
+                className="mt-[27.6vw] aspect-[572/714] w-[30vw] shrink-0"
               />
             </div>
 
-            {/* Heading */}
-            <h2 className="col-start-4 col-end-10 row-start-2 self-start text-center font-sans text-6xl font-normal leading-[1.05] tracking-tight text-black xl:text-7xl">
-              Moiwak
-              <br />
-              Outdoor supply
-            </h2>
-
-            {/* Paragraph */}
-            <p className="col-start-4 col-end-10 row-start-3 mx-auto mt-8 max-w-xl text-center font-mono text-xs font-light leading-[1.6] text-black">
-              Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
-              hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
-              varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
-              berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra
-              kontinenter.
-            </p>
-
-            {/* Waterfall + Yellow hood paired group — waterfall top aligns with second heading line; yellow hood sits to its right, overlapping bottom by ~3rem */}
-            <div className="col-start-1 col-end-10 row-start-2 row-span-4 mt-[3.5rem] flex items-start gap-4 xl:mt-[4.5rem]">
-              <div className="relative h-[60vh] w-[23vw] shrink-0">
-                <Image
-                  src="/images/general/waterfall.jpg"
-                  alt=""
-                  fill
-                  sizes="20vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative mt-[calc(60vh-4rem)] h-[75vh] w-[32vw] shrink-0">
-                <Image
-                  src="/images/general/yellow-outfit.jpg"
-                  alt=""
-                  fill
-                  sizes="24vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Concept text columns — starts ~25% down from top of image 3 */}
-            <div className="col-start-9 col-end-13 row-start-2 row-span-4 mt-[calc(60vh+18vh)] space-y-6">
-              {conceptItems.map((item) => (
-                <div key={item.title}>
-                  <h3 className="font-mono text-xs font-bold text-black">{item.title}</h3>
-                  <p className="mt-1 font-mono text-xs font-light leading-[1.6] text-black">
-                    {item.body}
-                  </p>
+            {/* Concept text columns */}
+            <div className="col-start-9 col-end-13 row-start-2 row-span-4 mt-[70vh] space-y-6">
+              <ParallaxFade>
+                <div className="space-y-6">
+                  {conceptItems.map((item) => (
+                    <div key={item.title}>
+                      <h3 className="font-mono text-[14px] font-semibold leading-[1.375] text-black">
+                        {item.title}
+                      </h3>
+                      <p className="font-mono text-[14px] font-normal leading-[1.375] text-black">
+                        {item.body}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </ParallaxFade>
             </div>
           </div>
         </section>
@@ -223,7 +223,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <h2 className="text-center font-sans text-5xl font-normal leading-none tracking-tight text-black xl:text-6xl">
+            <h2 className="text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black">
               Varumärken
             </h2>
 
@@ -293,7 +293,7 @@ export default function Home() {
           />
 
           <div className="relative flex h-full items-center justify-between px-(--section-x)">
-            <h2 className="font-sans text-5xl font-normal leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h2 className="font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-white">
               Go Ghost
             </h2>
 
@@ -343,7 +343,7 @@ export default function Home() {
         {/* Community */}
         <section id="community" className="relative h-dvh w-full bg-white">
           <div className="flex h-full items-center gap-4 overflow-x-auto pl-(--section-x) [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <h2 className="shrink-0 pr-6 font-sans text-4xl font-normal leading-none tracking-tight text-black sm:pr-8 lg:pr-12 lg:text-5xl xl:text-6xl">
+            <h2 className="shrink-0 pr-6 font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black sm:pr-8 lg:pr-12">
               Community
             </h2>
 

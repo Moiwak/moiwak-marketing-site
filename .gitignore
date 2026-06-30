@@ -49,3 +49,5 @@ next-env.d.ts
 
 # Local-only original (uncompressed) video assets
 public/videos/_originals/
+.firecrawl/
+scripts/
