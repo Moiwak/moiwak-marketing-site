@@ -215,7 +215,7 @@ export default function Home() {
         </section>
 
         {/* Brands */}
-        <section id="brands" className="relative mx-auto flex h-[min(56.25vw,1080px)] w-full max-w-[1920px] scroll-mt-16 flex-col justify-between bg-white py-[min(7.6vw,146px)]">
+        <section id="brands" className="relative mx-auto flex min-h-[min(56.25vw,1080px)] w-full max-w-[1920px] scroll-mt-16 flex-col justify-between bg-white py-[min(7.6vw,146px)]">
           {/* Vertical gridlines layer — full section height, passes behind heading */}
           <div
             aria-hidden
