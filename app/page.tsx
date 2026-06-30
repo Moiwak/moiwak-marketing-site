@@ -398,7 +398,7 @@ export default function Home() {
                         </p>
 
                         {/* Title — rotated 90° (reads bottom-to-top on the right edge) */}
-                        <h3 className="absolute top-1/2 right-6 origin-right -translate-y-1/2 -rotate-90 font-sans text-4xl font-semibold leading-[0.95] tracking-tight text-right whitespace-nowrap text-white">
+                        <h3 className="absolute top-[28%] right-14 origin-right -translate-y-1/2 -rotate-90 font-sans text-4xl font-semibold leading-[0.95] tracking-tight text-right whitespace-nowrap text-white">
                           Klätterkurs med
                           <br />
                           Karin Trollin
