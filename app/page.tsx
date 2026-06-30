@@ -352,7 +352,7 @@ export default function Home() {
 
         {/* Community */}
         <section id="community" className="relative h-[min(56.25vw,1080px)] w-full bg-white">
-          <div data-lenis-prevent className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(4.17vw,80px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(4.17vw,80px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <h2 className="shrink-0 pr-6 font-sans text-[60px] font-normal leading-[0.875] tracking-[-0.02em] text-black sm:pr-8 lg:pr-12">
               Community
             </h2>
@@ -369,10 +369,17 @@ export default function Home() {
                     }`}
                   >
                     {media?.type === 'video' && (
-                      <LazyVideo
-                        src={media.src}
-                        className="absolute inset-0 h-full w-full object-cover"
-                      />
+                      <>
+                        <LazyVideo
+                          src={media.src}
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        {/* Cover the baked-in Jitter free-tier watermark in the bottom-right */}
+                        <div
+                          aria-hidden
+                          className="absolute right-0 bottom-0 h-10 w-32 bg-black"
+                        />
+                      </>
                     )}
                     {media?.type === 'image' && (
                       <>
