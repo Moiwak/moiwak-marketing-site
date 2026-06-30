@@ -145,16 +145,19 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Desktop grid */}
-          <div className="relative hidden grid-cols-12 gap-x-8 px-(--section-x) pt-[4vw] lg:grid">
-            {/* Berries — right side, near top */}
-            <ParallaxImage
-              src="/images/general/berries.jpg"
-              sizes="22vw"
-              speed={35}
-              className="col-start-10 col-end-13 row-start-1 row-span-3 aspect-[422/632] w-[22vw] justify-self-end"
-            />
+          {/* Desktop — strict Figma px (1920 reference, scales down via min(vw,px)) */}
+          <div className="relative mx-auto hidden h-[min(88.59vw,1701px)] w-full max-w-[1920px] lg:block">
+            {/* Berries — right, near top (Figma y=131, right=80, 422x632) */}
+            <div className="absolute top-[min(6.82vw,131px)] right-[min(4.17vw,80px)] w-[min(21.98vw,422px)] aspect-[422/632]">
+              <ParallaxImage
+                src="/images/general/berries.jpg"
+                sizes="22vw"
+                speed={35}
+                className="h-full w-full"
+              />
+            </div>
 
+            {/* Heading + intro paragraph — centered to frame (Figma y=389, w=523) */}
             <HeadingReveal
               main="Moiwak"
               sub="Outdoor supply"
@@ -167,28 +170,32 @@ export default function Home() {
                   kontinenter.
                 </p>
               }
-              bodyClassName="mx-auto mt-[84px] max-w-xl"
-              className="col-start-4 col-end-10 row-start-2 row-span-2 self-start text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black"
+              bodyClassName="mx-auto mt-[84px] w-[min(38.59vw,741px)]"
+              className="absolute top-[min(20.26vw,389px)] left-1/2 w-[min(27.24vw,523px)] -translate-x-1/2 text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black"
             />
 
-            {/* Waterfall + Yellow group */}
-            <div className="col-start-1 col-end-10 row-start-2 row-span-4 mt-[3vw] flex items-start gap-[1.25vw]">
+            {/* Waterfall — left (Figma y=457, left=80, 422x633) */}
+            <div className="absolute top-[min(23.80vw,457px)] left-[min(4.17vw,80px)] w-[min(21.98vw,422px)] aspect-[422/633]">
               <ParallaxImage
                 src="/images/general/waterfall.jpg"
                 sizes="22vw"
                 speed={25}
-                className="aspect-[422/633] w-[22vw] shrink-0"
+                className="h-full w-full"
               />
+            </div>
+
+            {/* Yellow — center-left (Figma y=987, left=526, 572x714) */}
+            <div className="absolute top-[min(51.41vw,987px)] left-[min(27.40vw,526px)] w-[min(29.79vw,572px)] aspect-[572/714]">
               <ParallaxImage
                 src="/images/general/yellow-outfit.jpg"
                 sizes="30vw"
                 speed={40}
-                className="mt-[27.6vw] aspect-[572/714] w-[30vw] shrink-0"
+                className="h-full w-full"
               />
             </div>
 
-            {/* Concept text columns */}
-            <div className="col-start-9 col-end-13 row-start-2 row-span-4 mt-[70vh] space-y-6">
+            {/* Concept text — right (Figma y=1129, left=1269, w=570) */}
+            <div className="absolute top-[min(58.80vw,1129px)] left-[min(66.09vw,1269px)] w-[min(29.69vw,570px)]">
               <ParallaxFade>
                 <div className="space-y-6">
                   {conceptItems.map((item) => (
@@ -208,7 +215,7 @@ export default function Home() {
         </section>
 
         {/* Brands */}
-        <section id="brands" className="relative flex h-[130vh] scroll-mt-16 flex-col justify-between bg-white py-[15vh]">
+        <section id="brands" className="relative mx-auto flex h-[min(56.25vw,1080px)] w-full max-w-[1920px] scroll-mt-16 flex-col justify-between bg-white py-[min(7.6vw,146px)]">
           {/* Vertical gridlines layer — full section height, passes behind heading */}
           <div
             aria-hidden
@@ -286,18 +293,20 @@ export default function Home() {
         )}
 
         {/* Go Ghost */}
-        <section id="go-ghost" className="relative h-[115vh] w-full overflow-hidden bg-black">
+        <section id="go-ghost" className="relative h-[min(56.25vw,1080px)] w-full overflow-hidden bg-black">
           <LazyVideo
             src="/videos/mountains-timelapse.mp4"
             className="absolute inset-0 h-full w-full object-cover"
           />
 
-          <div className="relative flex h-full items-center justify-between px-(--section-x)">
-            <h2 className="font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-white">
+          <div className="relative mx-auto h-full w-full max-w-[1920px]">
+            {/* Heading (Figma y=484, left=79, w=323) */}
+            <h2 className="absolute top-[min(25.21vw,484px)] left-[min(4.11vw,79px)] w-[min(16.82vw,323px)] font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-white">
               Go Ghost
             </h2>
 
-            <div className="space-y-6 text-center font-mono text-xs font-light leading-[1.6] text-white sm:text-sm">
+            {/* Paragraph (Figma y=337, left=589, w=741) */}
+            <div className="absolute top-[min(17.55vw,337px)] left-[min(30.68vw,589px)] w-[min(38.59vw,741px)] space-y-6 text-center font-mono text-xs font-light leading-[1.6] text-white sm:text-sm">
               <div>
                 <p>Försvinn in i skogen, bergen och sjöarna.</p>
                 <p>In i vildmarkens vidder, vindar och vyer.</p>
@@ -331,18 +340,19 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Ghost (Figma y=460, left=1751, 85x120) */}
             <img
               src="/logo/ghost.svg"
               alt=""
               aria-hidden
-              className="h-[120px] w-[85px]"
+              className="absolute top-[min(23.96vw,460px)] left-[min(91.20vw,1751px)] w-[min(4.43vw,85px)] aspect-[85/120]"
             />
           </div>
         </section>
 
         {/* Community */}
-        <section id="community" className="relative h-dvh w-full bg-white">
-          <div className="flex h-full items-center gap-4 overflow-x-auto pl-(--section-x) [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <section id="community" className="relative h-[min(56.25vw,1080px)] w-full bg-white">
+          <div className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto pl-[min(4.17vw,80px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <h2 className="shrink-0 pr-6 font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black sm:pr-8 lg:pr-12">
               Community
             </h2>
@@ -354,7 +364,7 @@ export default function Home() {
                 return (
                   <article
                     key={event.title}
-                    className={`relative flex h-[80vh] w-[22vw] shrink-0 flex-col justify-between overflow-hidden bg-black p-6 text-white ${
+                    className={`relative flex h-[min(43.54vw,836px)] w-[min(21.98vw,422px)] shrink-0 flex-col justify-between overflow-hidden bg-black p-6 text-white ${
                       index === 1 ? '' : 'rounded-3xl'
                     }`}
                   >
@@ -442,7 +452,7 @@ export default function Home() {
               })}
 
             {/* Right gutter so the last card can scroll fully into view */}
-            <div className="shrink-0 pr-(--section-x)" aria-hidden />
+            <div className="shrink-0 pr-[min(4.17vw,80px)]" aria-hidden />
           </div>
         </section>
 
