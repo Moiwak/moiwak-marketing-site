@@ -40,7 +40,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative h-[calc(min(56.25vw,1080px)+60px)] w-full overflow-hidden bg-black">
+    <section className="relative h-[min(56.25vw,1080px)] w-full overflow-hidden bg-black">
       <video
         ref={videoRef}
         src="/videos/moiwak-hero.mp4"
