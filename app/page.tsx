@@ -301,7 +301,7 @@ export default function Home() {
 
           <div className="relative mx-auto h-full w-full max-w-[1920px]">
             {/* Heading (Figma y=484, left=79, w=323) */}
-            <h2 className="absolute top-[min(25.21vw,484px)] left-[min(4.11vw,79px)] w-[min(16.82vw,323px)] font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-white">
+            <h2 className="absolute top-[min(25.21vw,484px)] left-[min(4.11vw,79px)] whitespace-nowrap font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-white">
               Go Ghost
             </h2>
 
