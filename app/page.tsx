@@ -162,7 +162,7 @@ export default function Home() {
               main="Moiwak"
               sub="Outdoor supply"
               body={
-                <p className="text-center font-mono text-[clamp(11px,0.73vw,14px)] font-normal leading-[1.375] text-black">
+                <p className="text-center font-mono text-[min(0.73vw,14px)] font-normal leading-[1.375] text-black">
                   Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
                   hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
                   varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
@@ -171,7 +171,7 @@ export default function Home() {
                 </p>
               }
               bodyClassName="mt-[min(4.38vw,84px)]"
-              className="absolute top-[min(20.26vw,389px)] left-1/2 w-[min(38.59vw,741px)] -translate-x-1/2 text-center font-sans text-[clamp(42px,4.17vw,80px)] font-normal leading-[0.875] tracking-[-0.02em] text-black"
+              className="absolute top-[min(20.26vw,389px)] left-1/2 w-[min(38.59vw,741px)] -translate-x-1/2 text-center font-sans text-[min(4.17vw,80px)] font-normal leading-[0.875] tracking-[-0.02em] text-black"
             />
 
             {/* Waterfall — left (Figma y=457, left=80, 422x633) */}
