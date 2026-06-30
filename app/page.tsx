@@ -353,7 +353,7 @@ export default function Home() {
         {/* Community */}
         <section id="community" className="relative h-[min(56.25vw,1080px)] w-full bg-white">
           <div data-lenis-prevent className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(4.17vw,80px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <h2 className="shrink-0 pr-6 font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black sm:pr-8 lg:pr-12">
+            <h2 className="shrink-0 pr-6 font-sans text-[60px] font-normal leading-[0.875] tracking-[-0.02em] text-black sm:pr-8 lg:pr-12">
               Community
             </h2>
 
@@ -375,13 +375,43 @@ export default function Home() {
                       />
                     )}
                     {media?.type === 'image' && (
-                      <Image
-                        src={media.src}
-                        alt=""
-                        fill
-                        sizes="22vw"
-                        className="object-cover"
-                      />
+                      <>
+                        <Image
+                          src={media.src}
+                          alt=""
+                          fill
+                          sizes="22vw"
+                          className="object-cover"
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/0 to-black/70"
+                        />
+                        <p className="relative text-center font-mono text-xs font-light text-white/90 sm:text-sm">
+                          {event.date}
+                        </p>
+                        <div className="relative space-y-4 text-center">
+                          <h3 className="font-sans text-2xl font-normal leading-tight tracking-tight">
+                            {event.title}
+                          </h3>
+                          <p className="font-mono text-xs font-light leading-[1.6] text-white/95 sm:text-sm">
+                            {event.body}
+                          </p>
+                          <p className="font-mono text-xs font-light sm:text-sm">
+                            <a
+                              href={event.linkHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline decoration-white/60 underline-offset-2 hover:decoration-white"
+                            >
+                              {event.linkLabel}
+                            </a>
+                          </p>
+                        </div>
+                        <p className="relative text-center font-mono text-[10px] uppercase tracking-wider text-white/70">
+                          {event.season}
+                        </p>
+                      </>
                     )}
 
                     {!media && event.title === 'Peters paella!' && (
