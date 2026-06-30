@@ -104,7 +104,7 @@ const sustainabilityItems = [
 export default function Home() {
   return (
     <>
-      <main id="top" className="flex flex-col bg-neutral-100">
+      <main id="top" className="flex flex-col overflow-x-clip bg-neutral-100">
         <Hero />
         <SiteNav />
 
