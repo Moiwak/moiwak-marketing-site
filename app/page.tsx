@@ -397,8 +397,8 @@ export default function Home() {
                           {event.date}
                         </p>
 
-                        {/* Title — right-aligned, 2 lines, KH Teka */}
-                        <h3 className="absolute top-1/3 right-6 font-sans text-4xl font-semibold leading-[0.95] tracking-tight text-right text-white">
+                        {/* Title — rotated 90° (reads bottom-to-top on the right edge) */}
+                        <h3 className="absolute top-1/2 right-6 origin-right -translate-y-1/2 -rotate-90 font-sans text-4xl font-semibold leading-[0.95] tracking-tight text-right whitespace-nowrap text-white">
                           Klätterkurs med
                           <br />
                           Karin Trollin
