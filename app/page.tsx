@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Hero } from '@/components/hero'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
+import { LazyVideo } from '@/components/lazy-video'
 
 const SHOW_PHOTO_STRIP = false
 const SHOW_SUSTAINABILITY = false
@@ -286,12 +287,8 @@ export default function Home() {
 
         {/* Go Ghost */}
         <section id="go-ghost" className="relative h-[115vh] w-full overflow-hidden bg-black">
-          <video
+          <LazyVideo
             src="/videos/mountains-timelapse.mp4"
-            autoPlay
-            muted
-            playsInline
-            loop
             className="absolute inset-0 h-full w-full object-cover"
           />
 
@@ -362,12 +359,8 @@ export default function Home() {
                     }`}
                   >
                     {media?.type === 'video' && (
-                      <video
+                      <LazyVideo
                         src={media.src}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
                         className="absolute inset-0 h-full w-full object-cover"
                       />
                     )}
