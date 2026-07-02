@@ -235,7 +235,7 @@ export default function Home() {
                 Varumärken
               </h2>
 
-              <ul className="mt-16 grid grid-cols-5">
+              <ul className="mt-28 grid grid-cols-5">
                 {[
                   { src: '/brands/r1-c1.svg', h: 65 },
                   { src: '/brands/r1-c2.png', h: 117 },
@@ -253,7 +253,7 @@ export default function Home() {
                   null,
                   null,
                 ].map((logo, i) => (
-                  <li key={i} className="flex h-48 items-center justify-center p-6 lg:h-56">
+                  <li key={i} className="flex h-40 items-center justify-center p-4 lg:h-[min(10.42vw,200px)]">
                     {logo && (
                       <img
                         src={logo.src}
