@@ -5,6 +5,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { LazyVideo } from '@/components/lazy-video'
 import { ParallaxImage } from '@/components/parallax-image'
 import { ParallaxFade } from '@/components/parallax-fade'
+import { MaskReveal } from '@/components/mask-reveal'
 import { HeadingReveal } from '@/components/heading-reveal'
 
 const SHOW_PHOTO_STRIP = false
@@ -195,9 +196,9 @@ export default function Home() {
             </div>
 
             {/* Concept text — right (Figma y=1129, left=1269, w=570) */}
-            <div className="absolute top-[min(58.80vw,1129px)] left-[min(66.09vw,1269px)] w-[min(29.69vw,570px)]">
-              <ParallaxFade>
-                <div className="space-y-6">
+            <div className="absolute top-[min(60.36vw,1159px)] left-[min(66.09vw,1269px)] w-[min(29.69vw,570px)]">
+              <MaskReveal>
+                <div className="space-y-3">
                   {conceptItems.map((item) => (
                     <div key={item.title}>
                       <h3 className="font-mono text-[13px] font-semibold leading-[1.375] text-black">
@@ -209,7 +210,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </ParallaxFade>
+              </MaskReveal>
             </div>
           </div>
         </section>
