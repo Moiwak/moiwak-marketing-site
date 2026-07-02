@@ -46,7 +46,7 @@ const communitySeasons = [
       {
         date: '14 juli kl 16.00-19.00',
         title: 'Peters paella!',
-        body: 'Peter gör paella utanför Moiwak. 100 kr inkl dryck för vuxna och 70 kr för barn.',
+        body: 'Peter gör paella utanför Moiwak. 100 kr inkl dryck för vuxna och 70 kr för barn.',
         linkLabel: 'sardin.se',
         linkHref: 'https://sardin.se',
       },
@@ -302,12 +302,12 @@ export default function Home() {
 
           <div className="relative mx-auto h-full w-full max-w-[1920px]">
             {/* Heading (Figma y=484, left=79, w=323) */}
-            <h2 className="absolute top-[min(25.21vw,484px)] left-[min(4.11vw,79px)] whitespace-nowrap font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-white">
+            <h2 className="absolute top-[min(25.21vw,484px)] left-[min(4.11vw,79px)] whitespace-nowrap font-sans text-[min(4.17vw,80px)] font-normal leading-[0.9] tracking-[-0.02em] text-white">
               Go Ghost
             </h2>
 
-            {/* Paragraph (Figma y=337, w=741) — gap-centered between heading and ghost */}
-            <div className="absolute top-[min(17.55vw,337px)] left-[min(36.77vw,706px)] w-[min(38.59vw,741px)] space-y-6 text-center font-mono text-xs font-light leading-[1.6] text-white sm:text-sm">
+            {/* Paragraph (Figma y=337, left=589, w=741) */}
+            <div className="absolute top-[min(17.55vw,337px)] left-[min(30.68vw,589px)] w-[min(38.59vw,741px)] space-y-6 text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
               <div>
                 <p>Försvinn in i skogen, bergen och sjöarna.</p>
                 <p>In i vildmarkens vidder, vindar och vyer.</p>
@@ -353,8 +353,8 @@ export default function Home() {
 
         {/* Community */}
         <section id="community" className="relative h-[min(56.25vw,1080px)] w-full bg-white">
-          <div className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(4.17vw,80px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <h2 className="shrink-0 pr-6 font-sans text-[60px] font-normal leading-[0.875] tracking-[-0.02em] text-black sm:pr-8 lg:pr-12">
+          <div className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(2.08vw,40px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <h2 className="shrink-0 -translate-y-8 translate-x-2 pr-8 font-sans text-[min(4.17vw,80px)] font-normal leading-[0.9] tracking-[-0.02em] text-black">
               Community
             </h2>
 
@@ -366,7 +366,7 @@ export default function Home() {
                   <article
                     key={event.title}
                     className={`relative flex h-[min(43.54vw,836px)] w-[min(21.98vw,422px)] shrink-0 flex-col justify-between overflow-hidden bg-black p-6 text-white ${
-                      index === 1 ? '' : 'rounded-3xl'
+                      index === 1 ? '' : 'rounded-[min(1.30vw,25px)]'
                     }`}
                   >
                     {media?.type === 'video' && (
@@ -423,27 +423,27 @@ export default function Home() {
                     )}
 
                     {!media && event.title === 'Peters paella!' && (
-                      <div className="relative flex h-[80%] flex-col items-center justify-between text-center">
-                        <p className="font-mono text-sm font-light text-white">{event.date}</p>
+                      <div className="relative flex h-[80%] -translate-y-4 translate-x-2 flex-col items-center justify-between text-center">
+                        <p className="translate-y-6 font-mono text-xs font-light text-white">{event.date}</p>
 
                         <img
                           src="/illustrations/paella-pan.svg"
                           alt=""
                           aria-hidden
-                          className="w-[60%]"
+                          className="w-[min(9.11vw,175px)] translate-y-4"
                         />
 
                         <img
                           src="/illustrations/paella-group.svg"
                           alt="Peters paella"
-                          className="w-full"
+                          className="w-[min(20.16vw,387px)] max-w-none -translate-x-2 translate-y-4"
                         />
 
-                        <div className="space-y-3 px-2">
-                          <p className="font-mono text-sm font-light leading-[1.4] text-white">
+                        <div className="-translate-x-2 translate-y-4 space-y-3 px-2">
+                          <p className="text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
                             {event.body}
                           </p>
-                          <p className="font-mono text-sm font-light">
+                          <p className="-translate-y-2 text-center font-mono text-[min(0.83vw,16px)] font-normal">
                             <a
                               href={event.linkHref}
                               target="_blank"
