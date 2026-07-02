@@ -217,57 +217,57 @@ export default function Home() {
 
         {/* Brands */}
         <section id="brands" className="relative mx-auto flex min-h-[min(56.25vw,1080px)] w-full max-w-[1920px] scroll-mt-16 flex-col justify-between bg-white py-[min(7.6vw,146px)]">
-          {/* Vertical gridlines layer — full section height, passes behind heading */}
+          {/* Vertical gridlines layer — 6 lines, 5 columns between them, inset by Figma padding */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 grid grid-cols-[1.3fr_1fr_1fr_1fr_1fr_0.3fr]"
+            className="pointer-events-none absolute top-0 bottom-0 left-[min(3.44vw,66px)] right-[min(2.86vw,55px)] grid grid-cols-5 border-x border-black"
           >
             <div />
             <div className="border-l border-black" />
             <div className="border-l border-black" />
             <div className="border-l border-black" />
             <div className="border-l border-black" />
-            <div className="border-l border-black" />
           </div>
 
-          <div className="relative">
-            <h2 className="text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black">
-              Varumärken
-            </h2>
+          <div className="relative pl-[min(3.44vw,66px)] pr-[min(2.86vw,55px)]">
+            <div className="relative">
+              <h2 className="text-center font-sans text-[min(4.17vw,80px)] font-normal leading-[0.875] tracking-[-0.02em] text-black">
+                Varumärken
+              </h2>
 
-            <ul className="mt-16 grid grid-cols-[1.3fr_1fr_1fr_1fr_1fr_0.3fr]">
-              {[
-                { src: '/brands/r1-c1.svg', h: 65 },
-                { src: '/brands/r1-c2.png', h: 117 },
-                { src: '/brands/r1-c3.png', h: 144 },
-                { src: '/brands/r1-c4.png', h: 102 },
-                { src: '/brands/r1-c5.png', h: 130 },
-                null,
-                { src: '/brands/r2-c1.png', h: 25 },
-                { src: '/brands/r2-c2.png', h: 58 },
-                { src: '/brands/r2-c3.png', h: 85 },
-                { src: '/brands/r2-c4.png', h: 85 },
-                { src: '/brands/r2-c5.png', h: 58 },
-                null,
-                { src: '/brands/r3-c1.png', h: 129 },
-                { src: '/brands/r3-c2.png', h: 68 },
-                null,
-                null,
-                null,
-                null,
-              ].map((logo, i) => (
-                <li key={i} className="flex h-48 items-center justify-center p-6 lg:h-56">
-                  {logo && (
-                    <img
-                      src={logo.src}
-                      alt=""
-                      style={{ height: `${logo.h}px` }}
-                      className="w-auto max-h-full max-w-full object-contain"
-                    />
-                  )}
-                </li>
-              ))}
-            </ul>
+              <ul className="mt-16 grid grid-cols-5">
+                {[
+                  { src: '/brands/r1-c1.svg', h: 65 },
+                  { src: '/brands/r1-c2.png', h: 117 },
+                  { src: '/brands/r1-c3.png', h: 144 },
+                  { src: '/brands/r1-c4.png', h: 102 },
+                  { src: '/brands/r1-c5.png', h: 130 },
+                  { src: '/brands/r2-c1.png', h: 25 },
+                  { src: '/brands/r2-c2.png', h: 58 },
+                  { src: '/brands/r2-c3.png', h: 85 },
+                  { src: '/brands/r2-c4.png', h: 85 },
+                  { src: '/brands/r2-c5.png', h: 58 },
+                  { src: '/brands/r3-c1.png', h: 129 },
+                  { src: '/brands/r3-c2.png', h: 68 },
+                  null,
+                  null,
+                  null,
+                ].map((logo, i) => (
+                  <li key={i} className="flex h-48 items-center justify-center p-6 lg:h-56">
+                    {logo && (
+                      <img
+                        src={logo.src}
+                        alt=""
+                        style={{
+                          height: `min(${((logo.h / 1920) * 100).toFixed(2)}vw, ${logo.h}px)`,
+                        }}
+                        className="w-auto max-h-full max-w-full object-contain"
+                      />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
