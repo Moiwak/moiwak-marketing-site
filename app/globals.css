@@ -152,24 +152,6 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-:root {
-  --section-y: 5rem;
-  --section-x: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  :root {
-    --section-y: 8rem;
-    --section-x: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --section-x: 3.5rem;
-  }
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -179,6 +161,5 @@
   }
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
   }
 }
