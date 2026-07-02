@@ -22,8 +22,12 @@ export default function Home() {
 
           <div className="-translate-x-4 text-center font-mono sm:translate-x-0 text-xs font-light leading-[1.35] text-black sm:flex sm:items-start sm:gap-24 sm:text-left sm:text-sm">
             <div>
-              <p>Opening in Järvsö and</p>
-              <p>online this summer.</p>
+              <p>Now open!</p>
+              <p>Stenegård, Järvsö.</p>
+              <p>Opening hours:</p>
+              <p>11-16 every day during</p>
+              <p>summer (and event days</p>
+              <p>at Stenegård longer).</p>
             </div>
             <div className="hidden underline decoration-black/30 underline-offset-2 sm:block">
               <p>info@moiwak.com</p>
