@@ -106,10 +106,10 @@ export default function Home() {
     <>
       <main id="top" className="flex flex-col overflow-x-clip bg-neutral-100">
         <Hero />
-        <SiteNav />
 
         {/* About / Introduction */}
         <section id="about" className="scroll-mt-16 bg-[#FFF7E7]">
+          <SiteNav />
           {/* Mobile: simple stack. Desktop: 12-col asymmetric grid. */}
           <div className="flex flex-col gap-10 px-(--section-x) py-24 lg:hidden">
             <h2 className="text-center font-sans text-4xl font-normal leading-[1.05] tracking-tight text-black">
@@ -148,7 +148,7 @@ export default function Home() {
           {/* Desktop — strict Figma px (1920 reference, scales down via min(vw,px)) */}
           <div className="relative mx-auto hidden h-[min(88.59vw,1701px)] w-full max-w-[1920px] lg:block">
             {/* Berries — right, near top (Figma y=131, right=80, 422x632) */}
-            <div className="absolute top-[min(6.82vw,131px)] right-[min(4.17vw,80px)] w-[min(21.98vw,422px)] aspect-[422/632]">
+            <div className="absolute top-[min(6.41vw,123px)] right-[min(4.17vw,80px)] w-[min(21.98vw,422px)] aspect-[422/632]">
               <ParallaxImage
                 src="/images/general/berries.jpg"
                 sizes="22vw"
@@ -162,7 +162,7 @@ export default function Home() {
               main="Moiwak"
               sub="Outdoor supply"
               body={
-                <p className="text-center font-mono text-[14px] font-normal leading-[1.375] text-black">
+                <p className="text-center font-mono text-[13px] font-normal leading-[1.375] text-black">
                   Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
                   hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
                   varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
@@ -170,12 +170,12 @@ export default function Home() {
                   kontinenter.
                 </p>
               }
-              bodyClassName="mt-[84px]"
-              className="absolute bottom-[min(49.48vw,950px)] left-1/2 w-[min(38.59vw,741px)] -translate-x-1/2 text-center font-sans text-[80px] font-normal leading-[0.875] tracking-[-0.02em] text-black"
+              bodyClassName="relative left-1/2 mt-[min(3.80vw,73px)] w-[min(38.59vw,741px)] -translate-x-1/2"
+              className="absolute bottom-[min(52.08vw,1000px)] left-1/2 w-[min(27.24vw,523px)] -translate-x-1/2 text-center font-sans text-[min(4.17vw,80px)] font-normal leading-[0.875] tracking-[-0.02em] text-black"
             />
 
             {/* Waterfall — left (Figma y=457, left=80, 422x633) */}
-            <div className="absolute top-[min(23.80vw,457px)] left-[min(4.17vw,80px)] w-[min(21.98vw,422px)] aspect-[422/633]">
+            <div className="absolute top-[min(23.39vw,449px)] left-[min(4.17vw,80px)] w-[min(21.98vw,422px)] aspect-[422/633]">
               <ParallaxImage
                 src="/images/general/waterfall.jpg"
                 sizes="22vw"
@@ -200,10 +200,10 @@ export default function Home() {
                 <div className="space-y-6">
                   {conceptItems.map((item) => (
                     <div key={item.title}>
-                      <h3 className="font-mono text-[14px] font-semibold leading-[1.375] text-black">
+                      <h3 className="font-mono text-[13px] font-semibold leading-[1.375] text-black">
                         {item.title}
                       </h3>
-                      <p className="font-mono text-[14px] font-normal leading-[1.375] text-black">
+                      <p className="font-mono text-[13px] font-normal leading-[1.375] text-black">
                         {item.body}
                       </p>
                     </div>

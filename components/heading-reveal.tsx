@@ -20,17 +20,17 @@ export function HeadingReveal({ main, sub, body, className, bodyClassName }: Pro
 
   const mainOpacity = useTransform(
     scrollYProgress,
-    [0, 0.45, 0.4501, 0.7],
+    [0, 0.25, 0.2501, 0.5],
     [0, 0, 0.4, 1],
   )
   const subOpacity = useTransform(
     scrollYProgress,
-    [0, 0.5, 0.5001, 0.7],
+    [0, 0.3, 0.3001, 0.5],
     [0, 0, 0.4, 1],
   )
   const bodyOpacity = useTransform(
     scrollYProgress,
-    [0, 0.55, 0.5501, 0.75],
+    [0, 0.35, 0.3501, 0.55],
     [0, 0, 0.4, 1],
   )
 
