@@ -353,7 +353,7 @@ export default function Home() {
 
         {/* Community */}
         <section id="community" className="relative h-[min(56.25vw,1080px)] w-full bg-white">
-          <div className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(2.08vw,40px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(3.65vw,70px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <h2 className="shrink-0 -translate-y-8 translate-x-2 pr-8 font-sans text-[min(4.17vw,80px)] font-normal leading-[0.9] tracking-[-0.02em] text-black">
               Community
             </h2>
