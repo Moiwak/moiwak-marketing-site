@@ -382,7 +382,7 @@ export default function Home() {
                           alt=""
                           fill
                           sizes="22vw"
-                          className="object-cover"
+                          className="-translate-y-20 scale-[1.35] object-cover object-[85%_5%]"
                         />
                         <div
                           aria-hidden
@@ -399,14 +399,14 @@ export default function Home() {
                         </p>
 
                         {/* Title — rotated 90° (reads bottom-to-top on the right edge) */}
-                        <h3 className="absolute top-[28%] right-14 origin-right -translate-y-1/2 -rotate-90 font-sans text-4xl font-semibold leading-[0.95] tracking-tight text-right whitespace-nowrap text-white">
+                        <h3 className="absolute top-[14%] right-20 origin-right -translate-y-1/2 -rotate-90 font-sans text-[42px] font-normal leading-[1.0] tracking-tight text-left whitespace-nowrap text-white">
                           Klätterkurs med
                           <br />
                           Karin Trollin
                         </h3>
 
                         {/* Bottom text block — centered, ~1/3 of card */}
-                        <div className="absolute right-6 bottom-6 left-6 space-y-2 text-center font-mono text-[11px] font-light leading-[1.3] text-white">
+                        <div className="absolute right-8 bottom-8 left-8 space-y-2 text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
                           <p>{event.body}</p>
                           <p>
                             <a
