@@ -6,6 +6,7 @@ import { LazyVideo } from '@/components/lazy-video'
 import { ParallaxImage } from '@/components/parallax-image'
 import { ParallaxFade } from '@/components/parallax-fade'
 import { MaskReveal } from '@/components/mask-reveal'
+import { HorizontalScroll } from '@/components/horizontal-scroll'
 import { HeadingReveal } from '@/components/heading-reveal'
 
 const SHOW_PHOTO_STRIP = false
@@ -353,7 +354,7 @@ export default function Home() {
 
         {/* Community */}
         <section id="community" className="relative h-[min(56.25vw,1080px)] w-full bg-white">
-          <div className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(3.65vw,70px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <HorizontalScroll className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(3.65vw,70px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <h2 className="shrink-0 -translate-y-8 translate-x-2 pr-8 font-sans text-[min(4.17vw,80px)] font-normal leading-[0.9] tracking-[-0.02em] text-black">
               Community
             </h2>
@@ -491,7 +492,7 @@ export default function Home() {
 
             {/* Right gutter so the last card can scroll fully into view */}
             <div className="shrink-0 pr-[min(4.17vw,80px)]" aria-hidden />
-          </div>
+          </HorizontalScroll>
         </section>
 
         {/* Sustainability */}
