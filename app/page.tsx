@@ -106,44 +106,58 @@ const sustainabilityItems = [
 export default function Home() {
   return (
     <>
-      <main id="top" className="flex flex-col overflow-x-clip bg-neutral-100">
+      <main
+        id="top"
+        className="mx-auto flex max-w-[640px] flex-col overflow-x-clip bg-neutral-100 lg:max-w-none"
+      >
         <Hero />
 
         {/* About / Introduction */}
-        <section id="about" className="scroll-mt-16 bg-[#FFF7E7]">
+        <section id="about" className="scroll-mt-16 bg-white lg:bg-[#FFF7E7]">
           <SiteNav />
-          {/* Mobile: simple stack. Desktop: 12-col asymmetric grid. */}
-          <div className="flex flex-col gap-10 px-(--section-x) py-24 lg:hidden">
-            <h2 className="text-center font-sans text-4xl font-normal leading-[1.05] tracking-tight text-black">
+          {/* Mobile: single-column stack matching Figma. Desktop: 12-col asymmetric grid. */}
+          <div className="flex flex-col lg:hidden">
+            <h2 className="mx-auto w-[262px] pt-20 pb-[82px] text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-black">
               Moiwak
               <br />
               Outdoor supply
             </h2>
-            <p className="text-center font-mono text-xs font-light leading-[1.55] text-black">
-              Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
-              hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
-              varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
-              berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra
-              kontinenter.
-            </p>
-            <div className="relative -mx-(--section-x) aspect-[3/4] bg-neutral-200">
-              <Image src="/images/general/waterfall.jpg" alt="" fill sizes="100vw" className="object-cover" />
+
+            <div className="relative mr-auto w-[283px] aspect-[283/425] bg-neutral-200">
+              <Image src="/images/general/waterfall.jpg" alt="" fill sizes="72vw" className="object-cover" />
             </div>
-            <div className="relative -mx-(--section-x) aspect-[3/4] bg-neutral-200">
-              <Image src="/images/general/berries.jpg" alt="" fill sizes="100vw" className="object-cover" />
+
+            <div className="space-y-4 px-10 pt-20 pb-20 text-center font-mono text-[13px] font-light leading-[1.55] text-black">
+              <p>
+                Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
+                hållbart liv.
+              </p>
+              <p>
+                Det är den outdoorbutik vi själva saknat med ett utbud av de varumärken vi själva
+                använder och litar på för aktiviteter lika mycket i bygdens berg, skogar och
+                sjöar, som för större äventyr långt norröver och ibland på andra kontinenter.
+              </p>
             </div>
-            <div className="relative -mx-(--section-x) aspect-[4/5] bg-neutral-200">
-              <Image src="/images/general/yellow-outfit.jpg" alt="" fill sizes="100vw" className="object-cover" />
+
+            <div className="relative ml-auto w-[283px] aspect-[283/424] bg-neutral-200">
+              <Image src="/images/general/berries.jpg" alt="" fill sizes="72vw" className="object-cover" />
             </div>
-            <div className="space-y-6">
+
+            <div className="space-y-6 px-10 pt-20 pb-20">
               {conceptItems.map((item) => (
                 <div key={item.title}>
-                  <h3 className="font-mono text-xs font-bold text-black">{item.title}</h3>
-                  <p className="mt-1 font-mono text-xs font-light leading-[1.55] text-black">
+                  <h3 className="font-mono text-[13px] font-bold leading-[1.55] text-black">
+                    {item.title}
+                  </h3>
+                  <p className="font-mono text-[13px] font-light leading-[1.55] text-black">
                     {item.body}
                   </p>
                 </div>
               ))}
+            </div>
+
+            <div className="relative aspect-[393/491] w-full bg-neutral-200">
+              <Image src="/images/general/yellow-outfit.jpg" alt="" fill sizes="100vw" className="object-cover" />
             </div>
           </div>
 
@@ -216,8 +230,38 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Brands */}
-        <section id="brands" className="relative mx-auto flex min-h-[min(56.25vw,1080px)] w-full max-w-[1920px] scroll-mt-16 flex-col justify-between bg-white py-[min(7.6vw,146px)]">
+        {/* Brands — Mobile (3x3 grid, absolute-positioned to Figma) */}
+        <section id="brands-mobile" className="w-full bg-white py-20 lg:hidden">
+          <div className="relative mx-auto h-[290px] w-[393px]">
+          {[
+            { src: '/brands/r1-c1.svg', alt: 'Abril Aventura', w: 90, h: 34, top: 27, left: 23 },
+            { src: '/brands/r1-c2.png', alt: 'Big Agnes', w: 76, h: 67, top: 11, left: 159 },
+            { src: '/brands/r1-c3.png', alt: 'Calazo', w: 81, h: 87, top: 0, left: 284 },
+            { src: '/brands/r1-c4.png', alt: 'Carhartt', w: 88, h: 50, top: 118, left: 24 },
+            { src: '/brands/r1-c5.png', alt: 'Darn Tough', w: 74, h: 74, top: 111, left: 160 },
+            { src: '/brands/r2-c1.png', alt: 'Devold', w: 84, h: 12, top: 143, left: 282 },
+            { src: '/brands/r2-c2.png', alt: 'Dometic', w: 93, h: 21, top: 247, left: 22 },
+            { src: '/brands/r2-c3.png', alt: 'Fubuki', w: 89, h: 35, top: 240, left: 152 },
+            { src: '/brands/r2-c4.png', alt: 'Helinox', w: 89, h: 31, top: 242, left: 280 },
+          ].map((logo) => (
+            <img
+              key={logo.src}
+              src={logo.src}
+              alt={logo.alt}
+              style={{
+                width: `${logo.w}px`,
+                height: `${logo.h}px`,
+                top: `${logo.top}px`,
+                left: `${logo.left}px`,
+              }}
+              className="absolute object-contain"
+            />
+          ))}
+          </div>
+        </section>
+
+        {/* Brands — Desktop */}
+        <section id="brands" className="relative mx-auto hidden min-h-[min(56.25vw,1080px)] w-full max-w-[1920px] scroll-mt-16 flex-col justify-between bg-white py-[min(7.6vw,146px)] lg:flex">
           {/* Vertical gridlines layer — 6 lines, 5 columns between them, inset by Figma padding */}
           <div
             aria-hidden
@@ -295,13 +339,57 @@ export default function Home() {
         )}
 
         {/* Go Ghost */}
-        <section id="go-ghost" className="relative h-[min(56.25vw,1080px)] w-full overflow-hidden bg-black">
+        <section id="go-ghost" className="relative h-[878px] w-full overflow-hidden bg-black lg:h-[min(56.25vw,1080px)]">
           <LazyVideo
             src="/videos/mountains-timelapse.mp4"
             className="absolute inset-0 h-full w-full object-cover"
           />
 
-          <div className="relative mx-auto h-full w-full max-w-[1920px]">
+          {/* Mobile layout */}
+          <div className="relative flex h-full flex-col items-center px-8 pt-16 lg:hidden">
+            <h2 className="w-full text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-white">
+              Go Ghost
+            </h2>
+
+            <div className="mt-14 space-y-4 text-center font-mono text-[15px] font-normal leading-[19px] tracking-normal text-white">
+              <div>
+                <p>Försvinn in i skogen, bergen och sjöarna.</p>
+                <p>In i vildmarkens vidder, vindar och vyer.</p>
+                <p>Uppslukas av äventyret eller av en stilla stund vid tjärnen.</p>
+                <p>Förlora dig i löpningen på stigen eller välj vägen minst vandrad.</p>
+                <p>Hänge dig åt cyklingen på gruset utmed älven.</p>
+                <p>Eller bemästra den med en kajak.</p>
+              </div>
+              <div>
+                <p>Njut av åkning, utför berget, eller av toppturen upp.</p>
+                <p>Försvinn i sällskap eller in i dig själv.</p>
+                <p>Försjunk i dina tankar eller i samtalen kring elden.</p>
+              </div>
+              <div>
+                <p>Gå till sömns under bar himmel eller in i tältet.</p>
+                <p>
+                  Omfamna kylan eller vänd tillbaka till stugan insvept i en filt med en kaffe
+                  vid kaminen.
+                </p>
+              </div>
+              <div>
+                <p>Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter.</p>
+                <p>Hänförs av naturens närvaro, mystik och magi.</p>
+              </div>
+              <div>
+                <p>Se bara till att ta med dig rätt kläder, utrustning och proviant.</p>
+              </div>
+            </div>
+
+            <img
+              src="/logo/ghost.svg"
+              alt=""
+              aria-hidden
+              className="mt-14 w-[63px] h-[87px]"
+            />
+          </div>
+
+          <div className="relative mx-auto hidden h-full w-full max-w-[1920px] lg:block">
             {/* Heading (Figma y=484, left=79, w=323) */}
             <h2 className="absolute top-[min(25.21vw,484px)] left-[min(4.11vw,79px)] whitespace-nowrap font-sans text-[min(4.17vw,80px)] font-normal leading-[0.9] tracking-[-0.02em] text-white">
               Go Ghost
@@ -352,8 +440,53 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Community */}
-        <section id="community" className="relative h-[min(56.25vw,1080px)] w-full bg-white">
+        {/* Community — Mobile */}
+        <section id="community-mobile" className="w-full bg-white px-4 py-16 lg:hidden">
+          <h2 className="text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-black">
+            Moiwak
+            <br />
+            community
+          </h2>
+
+          <div className="mt-12 border-t border-black" />
+
+          <div className="mt-16 flex flex-col items-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
+            <p>14 juli kl 16.00-19.00</p>
+            <div className="flex items-center justify-center gap-10 [&_img]:invert">
+              <img
+                src="/illustrations/paella-pan.svg"
+                alt=""
+                aria-hidden
+                style={{ width: 134, height: 102 }}
+              />
+              <img
+                src="/illustrations/paella-group.svg"
+                alt="Peters paella"
+                style={{ width: 166, height: 90 }}
+              />
+            </div>
+            <p>
+              Peter gör paella utanför Moiwak.
+              <br />
+              100 kr inkl dryck för vuxna och
+              <br />
+              70 kr för barn.{' '}
+              <a
+                href="https://sardin.se"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2"
+              >
+                sardin.se
+              </a>
+            </p>
+          </div>
+
+          <div className="mt-16 border-t border-black" />
+        </section>
+
+        {/* Community — Desktop */}
+        <section id="community" className="relative hidden h-[min(56.25vw,1080px)] w-full bg-white lg:block">
           <HorizontalScroll className="flex h-full items-center gap-[min(1.20vw,23px)] overflow-x-auto overscroll-x-contain pl-[min(3.65vw,70px)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <h2 className="shrink-0 -translate-y-8 translate-x-2 pr-8 font-sans text-[min(4.17vw,80px)] font-normal leading-[0.9] tracking-[-0.02em] text-black">
               Community

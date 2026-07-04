@@ -8,7 +8,7 @@ const navLinks = [
 
 export function SiteNav() {
   return (
-    <div className="pointer-events-none sticky top-0 z-50 -mt-6 -mb-6 flex justify-center px-4">
+    <div className="pointer-events-none sticky top-0 z-50 -mt-6 -mb-6 hidden justify-center px-4 lg:flex">
       <nav className="pointer-events-auto flex h-[min(4.38vw,84px)] w-[min(45.89vw,881px)] items-center rounded-[min(1.04vw,20px)] bg-white pl-[min(1.46vw,28px)] pr-[min(3.59vw,69px)]">
         <a href="#top" aria-label="Moiwak" className="shrink-0">
           <img
