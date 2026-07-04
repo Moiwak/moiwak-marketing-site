@@ -156,7 +156,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="relative aspect-[393/491] w-full bg-neutral-200">
+            <div className="relative mx-auto aspect-[393/491] w-full max-w-[430px] bg-neutral-200">
               <Image src="/images/general/yellow-outfit.jpg" alt="" fill sizes="100vw" className="object-cover" />
             </div>
           </div>
