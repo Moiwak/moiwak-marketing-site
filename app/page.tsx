@@ -127,7 +127,7 @@ export default function Home() {
               <Image src="/images/general/waterfall.jpg" alt="" fill sizes="72vw" className="object-cover" />
             </div>
 
-            <div className="space-y-4 px-10 pt-20 pb-20 text-center font-mono text-[13px] font-light leading-[1.55] text-black">
+            <div className="space-y-4 px-6 pt-24 pb-24 text-center font-mono text-[15px] font-light leading-[19px] text-black">
               <p>
                 Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
                 hållbart liv.
@@ -143,13 +143,13 @@ export default function Home() {
               <Image src="/images/general/berries.jpg" alt="" fill sizes="72vw" className="object-cover" />
             </div>
 
-            <div className="space-y-6 px-10 pt-20 pb-20">
+            <div className="space-y-[18px] px-6 pt-24 pb-24">
               {conceptItems.map((item) => (
                 <div key={item.title}>
-                  <h3 className="font-mono text-[13px] font-bold leading-[1.55] text-black">
+                  <h3 className="font-mono text-[15px] font-bold leading-[19px] text-black">
                     {item.title}
                   </h3>
-                  <p className="font-mono text-[13px] font-light leading-[1.55] text-black">
+                  <p className="font-mono text-[15px] font-light leading-[19px] text-black">
                     {item.body}
                   </p>
                 </div>
@@ -339,42 +339,36 @@ export default function Home() {
         )}
 
         {/* Go Ghost */}
-        <section id="go-ghost" className="relative h-[878px] w-full overflow-hidden bg-black lg:h-[min(56.25vw,1080px)]">
+        <section id="go-ghost" className="relative w-full bg-black lg:h-[min(56.25vw,1080px)] lg:overflow-hidden">
           <LazyVideo
             src="/videos/mountains-timelapse.mp4"
             className="absolute inset-0 h-full w-full object-cover"
           />
 
           {/* Mobile layout */}
-          <div className="relative flex h-full flex-col items-center px-8 pt-16 lg:hidden">
+          <div className="relative flex flex-col items-center px-6 pt-12 pb-20 lg:hidden">
             <h2 className="w-full text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-white">
               Go Ghost
             </h2>
 
-            <div className="mt-14 space-y-4 text-center font-mono text-[15px] font-normal leading-[19px] tracking-normal text-white">
+            <div className="mt-16 space-y-4 text-center font-mono text-[15px] font-normal leading-[19px] tracking-normal text-white [&_p+p]:mt-3.5">
               <div>
-                <p>Försvinn in i skogen, bergen och sjöarna.</p>
-                <p>In i vildmarkens vidder, vindar och vyer.</p>
+                <p>Försvinn in i skogen, bergen och sjöarna. In i vildmarkens vidder, vindar och vyer.</p>
                 <p>Uppslukas av äventyret eller av en stilla stund vid tjärnen.</p>
                 <p>Förlora dig i löpningen på stigen eller välj vägen minst vandrad.</p>
-                <p>Hänge dig åt cyklingen på gruset utmed älven.</p>
-                <p>Eller bemästra den med en kajak.</p>
+                <p>Hänge dig åt cyklingen på gruset utmed älven. Eller bemästra den med en kajak.</p>
               </div>
               <div>
-                <p>Njut av åkning, utför berget, eller av toppturen upp.</p>
-                <p>Försvinn i sällskap eller in i dig själv.</p>
-                <p>Försjunk i dina tankar eller i samtalen kring elden.</p>
+                <p>Njut av åkning, utför berget, eller av toppturen upp. Försvinn i sällskap eller in i dig själv. Försjunk i dina tankar eller i samtalen kring elden.</p>
               </div>
               <div>
-                <p>Gå till sömns under bar himmel eller in i tältet.</p>
                 <p>
-                  Omfamna kylan eller vänd tillbaka till stugan insvept i en filt med en kaffe
-                  vid kaminen.
+                  Gå till sömns under bar himmel eller in i tältet. Omfamna kylan eller vänd
+                  tillbaka till stugan insvept i en filt med en kaffe vid kaminen.
                 </p>
               </div>
               <div>
-                <p>Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter.</p>
-                <p>Hänförs av naturens närvaro, mystik och magi.</p>
+                <p>Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter. Hänförs av naturens närvaro, mystik och magi.</p>
               </div>
               <div>
                 <p>Se bara till att ta med dig rätt kläder, utrustning och proviant.</p>
