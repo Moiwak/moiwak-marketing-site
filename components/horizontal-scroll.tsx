@@ -23,10 +23,20 @@ export function HorizontalScroll({ className, children }: Props) {
     const el = ref.current
     if (!el) return
 
+    let lockedAxis: 'x' | 'y' | null = null
+    let lastWheelAt = 0
+    const GESTURE_MS = 180
+
     const onWheel = (e: WheelEvent) => {
+      const now = performance.now()
+      if (now - lastWheelAt > GESTURE_MS) lockedAxis = null
+      lastWheelAt = now
+
       const absX = Math.abs(e.deltaX)
       const absY = Math.abs(e.deltaY)
-      if (absX <= absY) return
+      if (!lockedAxis) lockedAxis = absX > absY ? 'x' : 'y'
+
+      if (lockedAxis === 'y') return
       e.preventDefault()
       el.scrollLeft += e.deltaX
     }
@@ -36,7 +46,7 @@ export function HorizontalScroll({ className, children }: Props) {
   }, [])
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={`${className ?? ''} touch-pan-x overscroll-x-contain`}>
       {children}
     </div>
   )
