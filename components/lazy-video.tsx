@@ -10,7 +10,7 @@ type Props = {
 
 export function LazyVideo({ src, className, poster }: Props) {
   const ref = useRef<HTMLVideoElement>(null)
-  const [load, setLoad] = useState(false)
+  const [preload, setPreload] = useState<'none' | 'auto'>('none')
 
   useEffect(() => {
     const el = ref.current
@@ -18,7 +18,9 @@ export function LazyVideo({ src, className, poster }: Props) {
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
-          setLoad(true)
+          setPreload('auto')
+          el.load()
+          el.play().catch(() => {})
           io.disconnect()
         }
       },
@@ -31,13 +33,13 @@ export function LazyVideo({ src, className, poster }: Props) {
   return (
     <video
       ref={ref}
-      src={load ? src : undefined}
+      src={src}
       poster={poster}
       autoPlay
       muted
       loop
       playsInline
-      preload="none"
+      preload={preload}
       className={className}
     />
   )

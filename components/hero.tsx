@@ -53,17 +53,6 @@ export function Hero() {
 
       {/* Mobile overlays — hidden on lg+ where desktop layout takes over */}
       <div className="absolute inset-0 lg:hidden">
-        {/* Contact info — top right */}
-        <div className="absolute top-6 right-6 text-right font-mono text-[11px] font-light leading-[1.5] text-white">
-          <p>Moiwak Outdoor Supply</p>
-          <p>Stenegård 1, 827 54 Järvsö</p>
-          <p>Phone +46 70 271 87 84</p>
-          <p className="mt-3">Öppettider</p>
-          <p>Juli och augusti: varje dag</p>
-          <p>11.00-16.00 samt till senare</p>
-          <p>under eventkvällar på Stenegård.</p>
-        </div>
-
         {/* Wordmark — bottom center */}
         <img
           src="/logo/moiwak-wordmark-white.svg"
