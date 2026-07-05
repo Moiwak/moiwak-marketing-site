@@ -27,7 +27,7 @@ const conceptItems = [
   },
   {
     title: 'Utrustning',
-    body: 'Det mesta du behöver i ryggsäcken för dagar eller dygn i naturen - inklusive sharyggsäcken.',
+    body: 'Det mesta du behöver i ryggsäcken för dagar eller dygn i naturen - inklusive själva ryggsäcken.',
   },
   {
     title: 'Proviant',
@@ -47,7 +47,7 @@ const communitySeasons = [
       {
         date: '14 juli kl 16.00-19.00',
         title: 'Peters paella!',
-        body: 'Under sommaren serverar Peter paella på gårdsplanen utanför butiken.\n\nHåll utkik efter datum här på sajten.',
+        body: 'Under sommaren serverar Peter paella på gårdsplanen utanför butiken. Håll utkik efter datum här på sajten.',
         linkLabel: 'sardin.se',
         linkHref: 'https://solnasardin.se/',
       },
@@ -559,24 +559,24 @@ export default function Home() {
                     )}
 
                     {!media && event.title === 'Peters paella!' && (
-                      <div className="relative flex h-[80%] -translate-y-4 translate-x-2 flex-col items-center justify-between text-center">
+                      <div className="relative flex h-[80%] -translate-y-4 translate-x-2 flex-col items-center text-center">
                         <p className="translate-y-6 font-mono text-xs font-light text-white">{event.date}</p>
 
                         <img
                           src="/illustrations/paella-pan.svg"
                           alt=""
                           aria-hidden
-                          className="w-[min(9.11vw,175px)] translate-y-4"
+                          className="mt-[min(3.5vw,68px)] w-[min(9.11vw,175px)]"
                         />
 
                         <img
                           src="/illustrations/paella-group.svg"
                           alt="Peters paella"
-                          className="w-[min(20.16vw,387px)] max-w-none -translate-x-2 translate-y-4"
+                          className="mt-[min(3.5vw,68px)] w-[min(20.16vw,387px)] max-w-none -translate-x-2"
                         />
 
-                        <div className="-translate-x-2 translate-y-4 space-y-3 px-2">
-                          <p className="whitespace-pre-line text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
+                        <div className="mt-auto -translate-x-2 space-y-3 px-2">
+                          <p className="text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
                             {event.body}
                           </p>
                           <p className="-translate-y-2 text-center font-mono text-[min(0.83vw,16px)] font-normal">
