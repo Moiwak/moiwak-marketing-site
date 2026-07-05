@@ -11,6 +11,7 @@ import { HeadingReveal } from '@/components/heading-reveal'
 
 const SHOW_PHOTO_STRIP = false
 const SHOW_SUSTAINABILITY = false
+const SHOW_MOBILE_EXTRA_COMMUNITY_CARDS = false
 
 const productPhotos = [
   { src: '/axe.jpg', alt: 'Axe' },
@@ -485,7 +486,7 @@ export default function Home() {
                   </div>
                 )}
 
-                {otherEvents.map((event) => {
+                {SHOW_MOBILE_EXTRA_COMMUNITY_CARDS && otherEvents.map((event) => {
                   const media = 'media' in event ? event.media : undefined
                   const background = 'background' in event ? (event.background as string) : undefined
                   return (
