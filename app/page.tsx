@@ -62,7 +62,7 @@ const communitySeasons = [
       },
       {
         date: '26 juli kl 9.00-12.00',
-        title: 'Klätterkurs med Karin Trollin',
+        title: 'Klätterkurs med Karin Trolin',
         body: 'Erfarna äventyraren och klättringsguiden Karin Trolin bördig från Forsa ger en kurser i klättring och forspaddling.',
         linkLabel: 'www.explore61n.se',
         linkHref: 'https://www.explore61n.se/',
@@ -611,7 +611,7 @@ export default function Home() {
                         <h3 className="absolute top-[14%] right-20 origin-right -translate-y-1/2 -rotate-90 font-sans text-[42px] font-normal leading-[1.0] tracking-tight text-left whitespace-nowrap text-white">
                           Klätterkurs med
                           <br />
-                          Karin Trollin
+                          Karin Trolin
                         </h3>
 
                         {/* Bottom text block — centered, ~1/3 of card */}
