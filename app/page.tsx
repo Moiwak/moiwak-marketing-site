@@ -559,27 +559,29 @@ export default function Home() {
                     )}
 
                     {!media && event.title === 'Peters paella!' && (
-                      <div className="relative flex h-[80%] -translate-y-4 translate-x-2 flex-col items-center text-center">
-                        <p className="translate-y-6 font-mono text-xs font-light text-white">{event.date}</p>
+                      <>
+                        {/* Date + illustrations pinned to the top */}
+                        <div className="relative flex translate-x-2 flex-col items-center text-center">
+                          <p className="translate-y-2 font-mono text-xs font-light text-white">{event.date}</p>
 
-                        <img
-                          src="/illustrations/paella-pan.svg"
-                          alt=""
-                          aria-hidden
-                          className="mt-[min(3.5vw,68px)] w-[min(9.11vw,175px)]"
-                        />
+                          <img
+                            src="/illustrations/paella-pan.svg"
+                            alt=""
+                            aria-hidden
+                            className="mt-[min(3.5vw,68px)] w-[min(9.11vw,175px)]"
+                          />
 
-                        <img
-                          src="/illustrations/paella-group.svg"
-                          alt="Peters paella"
-                          className="mt-[min(3.5vw,68px)] w-[min(20.16vw,387px)] max-w-none -translate-x-2"
-                        />
+                          <img
+                            src="/illustrations/paella-group.svg"
+                            alt="Peters paella"
+                            className="mt-[min(3.5vw,68px)] w-[min(20.16vw,387px)] max-w-none -translate-x-2"
+                          />
+                        </div>
 
-                        <div className="mt-auto -translate-x-2 space-y-3 px-2">
-                          <p className="text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
-                            {event.body}
-                          </p>
-                          <p className="-translate-y-2 text-center font-mono text-[min(0.83vw,16px)] font-normal">
+                        {/* Body + link — anchored at card bottom, matches cards 3/4 */}
+                        <div className="absolute right-8 bottom-8 left-8 space-y-2 text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
+                          <p>{event.body}</p>
+                          <p>
                             <a
                               href={event.linkHref}
                               target="_blank"
@@ -590,7 +592,7 @@ export default function Home() {
                             </a>
                           </p>
                         </div>
-                      </div>
+                      </>
                     )}
 
                     {!media && background && (
