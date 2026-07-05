@@ -47,7 +47,7 @@ const communitySeasons = [
       {
         date: '14 juli kl 16.00-19.00',
         title: 'Peters paella!',
-        body: 'Peter gör paella utanför Moiwak. 100 kr inkl dryck för vuxna och 70 kr för barn.',
+        body: 'Under sommaren serverar Peter paella på gårdsplanen utanför butiken.\n\nHåll utkik efter datum här på sajten.',
         linkLabel: 'sardinsolna.se',
         linkHref: 'https://sardinsolna.se/',
       },
@@ -461,18 +461,17 @@ export default function Home() {
               />
             </div>
             <p>
-              Peter gör paella utanför Moiwak.
-              <br />
-              100 kr inkl dryck för vuxna och
-              <br />
-              70 kr för barn.{' '}
+              Under sommaren serverar Peter paella på gårdsplanen utanför butiken.
+            </p>
+            <p>
+              Håll utkik efter datum här på sajten.{' '}
               <a
-                href="https://sardin.se"
+                href="https://sardinsolna.se/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline underline-offset-2"
               >
-                sardin.se
+                sardinsolna.se
               </a>
             </p>
           </div>
@@ -570,7 +569,7 @@ export default function Home() {
                         />
 
                         <div className="-translate-x-2 translate-y-4 space-y-3 px-2">
-                          <p className="text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
+                          <p className="whitespace-pre-line text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
                             {event.body}
                           </p>
                           <p className="-translate-y-2 text-center font-mono text-[min(0.83vw,16px)] font-normal">
