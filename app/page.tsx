@@ -491,7 +491,7 @@ export default function Home() {
                   return (
                     <article
                       key={event.title}
-                      className="relative mt-6 flex aspect-[3/4] w-full flex-col overflow-hidden bg-black p-6 text-white"
+                      className="relative mt-6 flex aspect-square w-full flex-col overflow-hidden bg-black p-6 text-white"
                     >
                       {media?.type === 'video' && (
                         <LazyVideo
