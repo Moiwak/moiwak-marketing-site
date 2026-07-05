@@ -11,7 +11,7 @@ import { HeadingReveal } from '@/components/heading-reveal'
 
 const SHOW_PHOTO_STRIP = false
 const SHOW_SUSTAINABILITY = false
-const SHOW_MOBILE_EXTRA_COMMUNITY_CARDS = false
+const SHOW_MOBILE_EXTRA_COMMUNITY_CARDS = true
 
 const productPhotos = [
   { src: '/axe.jpg', alt: 'Axe' },
@@ -492,7 +492,7 @@ export default function Home() {
                   return (
                     <article
                       key={event.title}
-                      className="relative mt-6 flex h-[320px] w-full flex-col overflow-hidden bg-black p-6 text-white"
+                      className="relative flex h-[320px] w-full flex-col overflow-hidden bg-black p-6 text-white"
                     >
                       {media?.type === 'video' && (
                         <LazyVideo
