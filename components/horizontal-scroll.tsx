@@ -35,6 +35,11 @@ export function HorizontalScroll({ className, children }: Props) {
       const absX = Math.abs(e.deltaX)
       const absY = Math.abs(e.deltaY)
 
+      // If we're locked to x but the user has clearly switched to a vertical
+      // gesture (Y strongly dominates X), release the lock immediately so
+      // page scroll resumes without a "dead" first wheel burst.
+      if (lockedAxis === 'x' && absY > absX * 2) lockedAxis = null
+
       // Bias toward horizontal: any real X input on this element hijacks the gesture,
       // unless it's clearly a vertical scroll (Y dominates X by ~2x or more).
       if (!lockedAxis) {
