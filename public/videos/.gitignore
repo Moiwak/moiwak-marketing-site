@@ -1,3 +1,4 @@
 
 # Local-only original (uncompressed) video assets
 public/videos/_originals/
+.vercel
