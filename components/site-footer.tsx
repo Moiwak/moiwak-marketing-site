@@ -52,7 +52,7 @@ export function SiteFooter() {
   return (
     <footer
       id="contact"
-      className="relative h-[438px] w-full overflow-hidden bg-black text-white lg:h-[min(29.90vw,574px)]"
+      className="relative h-[520px] w-full overflow-hidden bg-black text-white lg:h-[min(29.90vw,574px)]"
     >
       {/* Mobile layout */}
       <div className="relative h-full w-full lg:hidden">
