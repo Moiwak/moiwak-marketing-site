@@ -13,6 +13,15 @@ export function Hero() {
   const [loopKey, setLoopKey] = useState(0)
   const [showLogo, setShowLogo] = useState(false)
   const [showText, setShowText] = useState(false)
+  const [videoSrc, setVideoSrc] = useState('/videos/moiwak-hero.mp4')
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const update = () => setVideoSrc(mq.matches ? '/videos/moiwak-hero.mp4' : '/videos/moiwak-mobile.mp4')
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
 
   useEffect(() => {
     setShowLogo(false)
@@ -43,7 +52,8 @@ export function Hero() {
     <section className="relative h-[100svh] w-full overflow-hidden bg-black lg:h-[min(56.25vw,1080px)]">
       <video
         ref={videoRef}
-        src="/videos/moiwak-hero.mp4"
+        key={videoSrc}
+        src={videoSrc}
         autoPlay
         muted
         playsInline
