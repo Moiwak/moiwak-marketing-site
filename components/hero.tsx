@@ -58,7 +58,7 @@ export function Hero() {
         muted
         playsInline
         onEnded={handleEnded}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover object-bottom lg:object-center"
       />
 
 {SHOW_OVERLAY && (

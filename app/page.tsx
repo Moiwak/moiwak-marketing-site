@@ -117,7 +117,13 @@ export default function Home() {
           <SiteNav />
           {/* Mobile: single-column stack matching Figma. Desktop: 12-col asymmetric grid. */}
           <div className="flex flex-col lg:hidden">
-            <div className="relative mr-auto mt-20 w-[283px] aspect-[283/425] bg-neutral-200">
+            <h2 className="mx-auto w-[262px] pt-20 pb-[82px] text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-black">
+              Moiwak
+              <br />
+              Outdoor supply
+            </h2>
+
+            <div className="relative mr-auto w-[283px] aspect-[283/425] bg-neutral-200">
               <Image src="/images/general/waterfall.jpg" alt="" fill sizes="72vw" className="object-cover" />
             </div>
 
