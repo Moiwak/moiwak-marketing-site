@@ -443,40 +443,47 @@ export default function Home() {
             community
           </h2>
 
-          <div className="mt-12 border-t border-black" />
+          {(() => {
+            const paella = communitySeasons
+              .flatMap((s) => s.events)
+              .find((e) => e.title === 'Peters paella!')
+            if (!paella) return null
+            return (
+              <>
+                <div className="mt-12 border-t border-black" />
 
-          <div className="mt-16 flex flex-col items-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
-            <p>14 juli kl 16.00-19.00</p>
-            <div className="flex items-center justify-center gap-10 [&_img]:invert">
-              <img
-                src="/illustrations/paella-pan.svg"
-                alt=""
-                aria-hidden
-                style={{ width: 134, height: 102 }}
-              />
-              <img
-                src="/illustrations/paella-group.svg"
-                alt="Peters paella"
-                style={{ width: 166, height: 90 }}
-              />
-            </div>
-            <p>
-              Under sommaren serverar Peter paella på gårdsplanen utanför butiken.
-            </p>
-            <p>
-              Håll utkik efter datum här på sajten.{' '}
-              <a
-                href="https://sardinsolna.se/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2"
-              >
-                sardinsolna.se
-              </a>
-            </p>
-          </div>
+                <div className="mt-16 flex flex-col items-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
+                  <p>{paella.date}</p>
+                  <div className="flex items-center justify-center gap-10 [&_img]:invert">
+                    <img
+                      src="/illustrations/paella-pan.svg"
+                      alt=""
+                      aria-hidden
+                      style={{ width: 134, height: 102 }}
+                    />
+                    <img
+                      src="/illustrations/paella-group.svg"
+                      alt="Peters paella"
+                      style={{ width: 166, height: 90 }}
+                    />
+                  </div>
+                  <p className="whitespace-pre-line">{paella.body}</p>
+                  <p>
+                    <a
+                      href={paella.linkHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2"
+                    >
+                      {paella.linkLabel}
+                    </a>
+                  </p>
+                </div>
 
-          <div className="mt-16 border-t border-black" />
+                <div className="mt-16 border-t border-black" />
+              </>
+            )
+          })()}
         </section>
 
         {/* Community — Desktop */}
