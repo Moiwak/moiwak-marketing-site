@@ -159,7 +159,7 @@ export default function Home() {
             </div>
 
             <div className="relative mx-auto aspect-[393/491] w-full max-w-[430px] bg-neutral-200">
-              <Image src="/images/general/yellow-outfit.jpg" alt="" fill sizes="100vw" className="object-cover" />
+              <Image src="/images/general/yellow_raincoat.png" alt="" fill sizes="100vw" className="object-cover" />
             </div>
           </div>
 
@@ -205,7 +205,7 @@ export default function Home() {
             {/* Yellow — center-left (Figma y=987, left=526, 572x714) */}
             <div className="absolute top-[min(51.41vw,987px)] left-[min(27.40vw,526px)] w-[min(29.79vw,572px)] aspect-[572/714]">
               <ParallaxImage
-                src="/images/general/yellow-outfit.jpg"
+                src="/images/general/yellow_raincoat.png"
                 sizes="30vw"
                 speed={40}
                 className="h-full w-full"
