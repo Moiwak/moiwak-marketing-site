@@ -61,17 +61,7 @@ export function Hero() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Mobile overlays — hidden on lg+ where desktop layout takes over */}
-      <div className="absolute inset-0 lg:hidden">
-        {/* Wordmark — bottom center */}
-        <img
-          src="/logo/moiwak-wordmark-white.svg"
-          alt="Moiwak"
-          className="absolute bottom-8 left-1/2 w-[85%] -translate-x-1/2"
-        />
-      </div>
-
-      {SHOW_OVERLAY && (
+{SHOW_OVERLAY && (
       <div className="absolute inset-0 flex items-center justify-between px-8 sm:px-12 lg:px-16">
         <img
           src="/logo/Moiwak_Logo_White_-Beta.svg"
