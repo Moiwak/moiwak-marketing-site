@@ -487,7 +487,7 @@ export default function Home() {
 
                 {otherEvents.map((event) => {
                   const media = 'media' in event ? event.media : undefined
-                  const background = 'background' in event ? event.background : undefined
+                  const background = 'background' in event ? (event.background as string) : undefined
                   return (
                     <article
                       key={event.title}
@@ -567,7 +567,7 @@ export default function Home() {
               .flatMap((season) => season.events.map((event) => ({ ...event, season: season.season })))
               .map((event, index) => {
                 const media = 'media' in event ? event.media : undefined
-                const background = 'background' in event ? event.background : undefined
+                const background = 'background' in event ? (event.background as string) : undefined
                 return (
                   <article
                     key={event.title}
