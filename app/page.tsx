@@ -530,24 +530,26 @@ export default function Home() {
                         {event.date}
                       </p>
 
-                      <div className="absolute right-6 bottom-8 left-6 space-y-3 text-center">
-                        <h3 className="font-sans text-[28px] font-normal leading-[1.05] tracking-[-0.02em]">
-                          {event.title}
-                        </h3>
-                        <p className="font-mono text-[15px] font-normal leading-[19px]">
-                          {event.body}
-                        </p>
-                        <p className="font-mono text-[15px] font-normal leading-[19px]">
-                          <a
-                            href={event.linkHref}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline decoration-white/60 underline-offset-2"
-                          >
-                            {event.linkLabel}
-                          </a>
-                        </p>
-                      </div>
+                      {media?.type !== 'video' && (
+                        <div className="absolute right-6 bottom-8 left-6 space-y-3 text-center">
+                          <h3 className="font-sans text-[28px] font-normal leading-[1.05] tracking-[-0.02em]">
+                            {event.title}
+                          </h3>
+                          <p className="font-mono text-[15px] font-normal leading-[19px]">
+                            {event.body}
+                          </p>
+                          <p className="font-mono text-[15px] font-normal leading-[19px]">
+                            <a
+                              href={event.linkHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline decoration-white/60 underline-offset-2"
+                            >
+                              {event.linkLabel}
+                            </a>
+                          </p>
+                        </div>
+                      )}
                     </article>
                   )
                 })}
