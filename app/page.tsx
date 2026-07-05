@@ -74,7 +74,7 @@ const communitySeasons = [
     season: 'Höst 2026',
     events: [
       {
-        date: '4-6 september',
+        date: 'Järvsö 4–6 september 2026',
         title: 'Utefesten i Undersvik',
         body: 'Besök oss i butiken eller på Utefesten i Undersvik. Erbjudanden och nya produkter i butiken.',
         linkLabel: 'utemagasinet.se/utefest-2026',
@@ -587,23 +587,55 @@ export default function Home() {
                       </div>
                     )}
 
-                    {!media && event.title !== 'Peters paella!' && (
+                    {!media && background && (
                       <>
-                        {background && (
-                          <>
-                            <Image
-                              src={background}
-                              alt=""
-                              fill
-                              sizes="22vw"
-                              className="object-cover"
-                            />
-                            <div
-                              aria-hidden
-                              className="absolute inset-0 bg-black/35"
-                            />
-                          </>
-                        )}
+                        <Image
+                          src={background}
+                          alt=""
+                          fill
+                          sizes="22vw"
+                          className="object-cover"
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-black/0"
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-black/0 to-black/75"
+                        />
+
+                        {/* Date — top of card */}
+                        <p className="relative text-center font-mono text-xs font-light text-white/90">
+                          {event.date}
+                        </p>
+
+                        {/* Title — rotated 90° (reads bottom-to-top on the right edge) */}
+                        <h3 className="absolute top-[14%] right-20 origin-right -translate-y-1/2 -rotate-90 font-sans text-[42px] font-normal leading-[1.0] tracking-tight text-left whitespace-nowrap text-white">
+                          Utefesten i
+                          <br />
+                          Undersvik
+                        </h3>
+
+                        {/* Bottom text block */}
+                        <div className="absolute right-8 bottom-8 left-8 space-y-2 text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
+                          <p>{event.body}</p>
+                          <p>
+                            <a
+                              href={event.linkHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline decoration-white/60 underline-offset-2 hover:decoration-white"
+                            >
+                              {event.linkLabel}
+                            </a>
+                          </p>
+                        </div>
+                      </>
+                    )}
+
+                    {!media && !background && event.title !== 'Peters paella!' && (
+                      <>
                         <p className="relative text-center font-mono text-xs font-light text-white/80 sm:text-sm">
                           {event.date}
                         </p>
