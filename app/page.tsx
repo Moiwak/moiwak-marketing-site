@@ -491,7 +491,7 @@ export default function Home() {
                   return (
                     <article
                       key={event.title}
-                      className="relative mt-6 flex aspect-square w-full flex-col overflow-hidden bg-black p-6 text-white"
+                      className="relative mt-6 flex h-[320px] w-full flex-col overflow-hidden bg-black p-6 text-white"
                     >
                       {media?.type === 'video' && (
                         <LazyVideo
@@ -531,14 +531,14 @@ export default function Home() {
                       </p>
 
                       {media?.type !== 'video' && (
-                        <div className="absolute right-6 bottom-8 left-6 space-y-3 text-center">
-                          <h3 className="font-sans text-[28px] font-normal leading-[1.05] tracking-[-0.02em]">
+                        <div className="absolute right-6 bottom-6 left-6 space-y-2 text-center">
+                          <h3 className="font-sans text-[22px] font-normal leading-[1.05] tracking-[-0.02em]">
                             {event.title}
                           </h3>
-                          <p className="font-mono text-[15px] font-normal leading-[19px]">
+                          <p className="font-mono text-[13px] font-normal leading-[17px]">
                             {event.body}
                           </p>
-                          <p className="font-mono text-[15px] font-normal leading-[19px]">
+                          <p className="font-mono text-[13px] font-normal leading-[17px]">
                             <a
                               href={event.linkHref}
                               target="_blank"
