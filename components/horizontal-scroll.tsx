@@ -34,19 +34,33 @@ export function HorizontalScroll({ className, children }: Props) {
 
       const absX = Math.abs(e.deltaX)
       const absY = Math.abs(e.deltaY)
-      if (!lockedAxis) lockedAxis = absX > absY ? 'x' : 'y'
+
+      // Bias toward horizontal: any real X input on this element hijacks the gesture,
+      // unless it's clearly a vertical scroll (Y dominates X by ~2x or more).
+      if (!lockedAxis) {
+        if (absX >= 1 && absY < absX * 2) lockedAxis = 'x'
+        else lockedAxis = 'y'
+      }
 
       if (lockedAxis === 'y') return
+
+      // While locked to horizontal, consume the event fully so Lenis / page scroll
+      // never sees the Y component. Cards move only in X.
       e.preventDefault()
+      e.stopPropagation()
       el.scrollLeft += e.deltaX
     }
 
-    el.addEventListener('wheel', onWheel, { passive: false })
-    return () => el.removeEventListener('wheel', onWheel)
+    // Capture phase so we intercept before Lenis's window-level listener runs.
+    el.addEventListener('wheel', onWheel, { passive: false, capture: true })
+    return () => el.removeEventListener('wheel', onWheel, { capture: true })
   }, [])
 
   return (
-    <div ref={ref} className={`${className ?? ''} touch-pan-x overscroll-x-contain`}>
+    <div
+      ref={ref}
+      className={`${className ?? ''} touch-pan-x overscroll-contain [overscroll-behavior:contain]`}
+    >
       {children}
     </div>
   )
