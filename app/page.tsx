@@ -62,7 +62,7 @@ const communitySeasons = [
       {
         date: '26 juli kl 9.00-12.00',
         title: 'Klätterkurs med Karin Trollin',
-        body: 'Erfarna äventyraren och klättringsguiden Karin Trolin bördig från Forsa ger en nybörjarkurs i klättring. Samling vid Järvsö Bergcykelpark klockan 9.00. Från 12 år och uppåt. 500 kronor per deltagare betalas på plats. Utrustning ingår. Anmälan direkt till karin.trollin@xxxxxx.se senast den 24 juli.',
+        body: 'Erfarna äventyraren och klättringsguiden Karin Trolin bördig från Forsa ger en kurser i klättring och forspaddling.',
         linkLabel: 'placeholder.se',
         linkHref: '#',
         media: { type: 'image' as const, src: '/images/general/mountain-climber.jpg' },
