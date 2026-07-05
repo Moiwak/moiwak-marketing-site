@@ -122,7 +122,7 @@ export default function Home() {
             <h2 className="mx-auto w-[262px] pt-20 pb-[82px] text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-black">
               Moiwak
               <br />
-              Outdoor supply
+              Outdoor Supply
             </h2>
 
             <div className="relative mr-auto w-[283px] aspect-[283/425] bg-neutral-200">
@@ -178,7 +178,7 @@ export default function Home() {
             {/* Heading + intro paragraph — centered to frame (Figma y=389, w=523) */}
             <HeadingReveal
               main="Moiwak"
-              sub="Outdoor supply"
+              sub="Outdoor Supply"
               body={
                 <p className="text-center font-mono text-[13px] font-normal leading-[1.375] text-black">
                   Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
