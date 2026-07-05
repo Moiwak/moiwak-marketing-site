@@ -79,6 +79,7 @@ const communitySeasons = [
         body: 'Besök oss i butiken eller på Utefesten i Undersvik. Erbjudanden och nya produkter i butiken.',
         linkLabel: 'utemagasinet.se/utefest-2026',
         linkHref: 'https://www.utemagasinet.se/utefest-2026/',
+        background: '/images/general/outdoor_market_undersvik.jpeg',
       },
     ],
   },
@@ -490,6 +491,7 @@ export default function Home() {
               .flatMap((season) => season.events.map((event) => ({ ...event, season: season.season })))
               .map((event, index) => {
                 const media = 'media' in event ? event.media : undefined
+                const background = 'background' in event ? event.background : undefined
                 return (
                   <article
                     key={event.title}
@@ -587,6 +589,21 @@ export default function Home() {
 
                     {!media && event.title !== 'Peters paella!' && (
                       <>
+                        {background && (
+                          <>
+                            <Image
+                              src={background}
+                              alt=""
+                              fill
+                              sizes="22vw"
+                              className="object-cover"
+                            />
+                            <div
+                              aria-hidden
+                              className="absolute inset-0 bg-black/35"
+                            />
+                          </>
+                        )}
                         <p className="relative text-center font-mono text-xs font-light text-white/80 sm:text-sm">
                           {event.date}
                         </p>
