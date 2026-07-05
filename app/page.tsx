@@ -436,51 +436,121 @@ export default function Home() {
         </section>
 
         {/* Community — Mobile */}
-        <section id="community-mobile" className="w-full bg-white px-4 py-16 lg:hidden">
-          <h2 className="text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-black">
+        <section id="community-mobile" className="w-full bg-white pt-16 lg:hidden">
+          <h2 className="px-4 text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-black">
             Moiwak
             <br />
             community
           </h2>
 
           {(() => {
-            const paella = communitySeasons
-              .flatMap((s) => s.events)
-              .find((e) => e.title === 'Peters paella!')
-            if (!paella) return null
+            const events = communitySeasons.flatMap((s) => s.events)
+            const paella = events.find((e) => e.title === 'Peters paella!')
+            const otherEvents = events.filter((e) => e.title !== 'Peters paella!')
             return (
               <>
-                <div className="mt-12 border-t border-black" />
+                {paella && (
+                  <div className="px-4">
+                    <div className="mt-12 border-t border-black" />
 
-                <div className="mt-16 flex flex-col items-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
-                  <p>{paella.date}</p>
-                  <div className="flex items-center justify-center gap-10 [&_img]:invert">
-                    <img
-                      src="/illustrations/paella-pan.svg"
-                      alt=""
-                      aria-hidden
-                      style={{ width: 134, height: 102 }}
-                    />
-                    <img
-                      src="/illustrations/paella-group.svg"
-                      alt="Peters paella"
-                      style={{ width: 166, height: 90 }}
-                    />
+                    <div className="mt-16 flex flex-col items-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
+                      <p>{paella.date}</p>
+                      <div className="flex items-center justify-center gap-10 [&_img]:invert">
+                        <img
+                          src="/illustrations/paella-pan.svg"
+                          alt=""
+                          aria-hidden
+                          style={{ width: 134, height: 102 }}
+                        />
+                        <img
+                          src="/illustrations/paella-group.svg"
+                          alt="Peters paella"
+                          style={{ width: 166, height: 90 }}
+                        />
+                      </div>
+                      <p className="whitespace-pre-line">{paella.body}</p>
+                      <p>
+                        <a
+                          href={paella.linkHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline underline-offset-2"
+                        >
+                          {paella.linkLabel}
+                        </a>
+                      </p>
+                    </div>
+
+                    <div className="mt-16 border-t border-black" />
                   </div>
-                  <p className="whitespace-pre-line">{paella.body}</p>
-                  <p>
-                    <a
-                      href={paella.linkHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline underline-offset-2"
-                    >
-                      {paella.linkLabel}
-                    </a>
-                  </p>
-                </div>
+                )}
 
-                <div className="mt-16 border-t border-black" />
+                {otherEvents.map((event) => {
+                  const media = 'media' in event ? event.media : undefined
+                  const background = 'background' in event ? event.background : undefined
+                  return (
+                    <article
+                      key={event.title}
+                      className="relative mt-6 flex aspect-[3/4] w-full flex-col overflow-hidden bg-black p-6 text-white"
+                    >
+                      {media?.type === 'video' && (
+                        <LazyVideo
+                          src={media.src}
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                      )}
+                      {media?.type === 'image' && (
+                        <Image
+                          src={media.src}
+                          alt=""
+                          fill
+                          sizes="100vw"
+                          className="object-cover"
+                        />
+                      )}
+                      {background && (
+                        <Image
+                          src={background}
+                          alt=""
+                          fill
+                          sizes="100vw"
+                          className="object-cover"
+                        />
+                      )}
+                      <div
+                        aria-hidden
+                        className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-black/0"
+                      />
+                      <div
+                        aria-hidden
+                        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-black/0 to-black/80"
+                      />
+
+                      <p className="relative text-center font-mono text-[15px] font-normal leading-[19px] text-white/95">
+                        {event.date}
+                      </p>
+
+                      <div className="absolute right-6 bottom-8 left-6 space-y-3 text-center">
+                        <h3 className="font-sans text-[28px] font-normal leading-[1.05] tracking-[-0.02em]">
+                          {event.title}
+                        </h3>
+                        <p className="font-mono text-[15px] font-normal leading-[19px]">
+                          {event.body}
+                        </p>
+                        <p className="font-mono text-[15px] font-normal leading-[19px]">
+                          <a
+                            href={event.linkHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline decoration-white/60 underline-offset-2"
+                          >
+                            {event.linkLabel}
+                          </a>
+                        </p>
+                      </div>
+                    </article>
+                  )
+                })}
               </>
             )
           })()}
