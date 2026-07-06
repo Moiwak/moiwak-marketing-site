@@ -71,14 +71,7 @@ export function SiteFooter() {
           <p>Stenegård 1</p>
           <p>827 54 Järvsö</p>
           <p>Phone +46 70 271 87 84</p>
-          <p>
-            <a
-              href="mailto:info@moiwak.com"
-              className="underline decoration-white/60 underline-offset-2"
-            >
-              info@moiwak.com
-            </a>
-          </p>
+          <p><a href="mailto:info@moiwak.com" className="underline decoration-white/60 underline-offset-2">info@moiwak.com</a></p>
           <p className="mt-5">Öppettider</p>
           <p>Juli och augusti: varje dag 11.00-16.00 samt till senare under eventkvällar på Stenegård.</p>
           <p className="mt-5">Webshop lanseras under augusti.</p>
@@ -95,14 +88,7 @@ export function SiteFooter() {
             <p>Stenegård 1</p>
             <p>827 54 Järvsö</p>
             <p>Phone +46 70 271 87 84</p>
-            <p>
-              <a
-                href="mailto:info@moiwak.com"
-                className="underline decoration-white/40 underline-offset-2 hover:decoration-white"
-              >
-                info@moiwak.com
-              </a>
-            </p>
+            <p><a href="mailto:info@moiwak.com" className="underline decoration-white/60 underline-offset-2">info@moiwak.com</a></p>
           </div>
 
           <div>
