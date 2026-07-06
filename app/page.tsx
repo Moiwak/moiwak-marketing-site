@@ -452,7 +452,7 @@ export default function Home() {
                   <div className="px-4">
                     <div className="mt-12 border-t border-black" />
 
-                    <div className="mt-16 flex flex-col items-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
+                    <div className="mt-16 flex aspect-[3/2] w-full flex-col items-center justify-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
                       <p>{paella.date}</p>
                       <div className="flex items-center justify-center gap-10 [&_img]:invert">
                         <img
