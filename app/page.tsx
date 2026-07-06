@@ -182,10 +182,10 @@ export default function Home() {
         className="mx-auto flex max-w-[640px] flex-col overflow-x-clip bg-neutral-100 lg:max-w-none"
       >
         <Hero />
+        <SiteNav />
 
         {/* About / Introduction */}
         <section id="about" className="scroll-mt-16 bg-white lg:bg-[#FFF7E7]">
-          <SiteNav />
           {/* Mobile: single-column stack matching Figma. Desktop: 12-col asymmetric grid. */}
           <div className="flex flex-col lg:hidden">
             <h2 className="mx-auto w-fit pt-20 pb-[82px] text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] whitespace-nowrap text-black">
