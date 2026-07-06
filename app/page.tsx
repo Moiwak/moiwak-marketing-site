@@ -204,7 +204,7 @@ export default function Home() {
             </div>
 
             <div className="relative ml-auto w-[283px] aspect-[283/424] bg-neutral-200">
-              <Image src="/images/general/berries.jpg" alt="" fill sizes="72vw" className="object-cover" />
+              <Image src="/images/general/store_gear.png" alt="" fill sizes="72vw" className="object-cover" />
             </div>
 
             <div className="space-y-[18px] px-6 pt-24 pb-24">
@@ -230,7 +230,7 @@ export default function Home() {
             {/* Berries — right, near top (Figma y=131, right=80, 422x632) */}
             <div className="absolute top-[min(6.41vw,123px)] right-[min(4.17vw,80px)] w-[min(21.98vw,422px)] aspect-[422/632]">
               <ParallaxImage
-                src="/images/general/berries.jpg"
+                src="/images/general/yellow_raincoat.png"
                 sizes="22vw"
                 speed={35}
                 className="h-full w-full"
@@ -263,15 +263,15 @@ export default function Home() {
             {/* Yellow — center-left (Figma y=987, left=526, 572x714) */}
             <div className="absolute top-[min(51.41vw,987px)] left-[min(27.40vw,526px)] w-[min(29.79vw,572px)] aspect-[572/714]">
               <ParallaxImage
-                src="/images/general/yellow_raincoat.png"
+                src="/images/general/store_gear.png"
                 sizes="30vw"
                 speed={40}
                 className="h-full w-full"
               />
             </div>
 
-            {/* Concept text — right (Figma y=1129, left=1269, w=570) */}
-            <div className="absolute top-[min(60.36vw,1159px)] left-[min(66.09vw,1269px)] w-[min(29.69vw,570px)]">
+            {/* Concept text — right, aligned with image top */}
+            <div className="absolute top-[min(54.69vw,1050px)] left-[min(66.09vw,1269px)] w-[min(29.69vw,570px)]">
               <MaskReveal>
                 <div className="space-y-3">
                   {conceptItems.map((item) => (
