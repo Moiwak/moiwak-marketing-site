@@ -13,12 +13,80 @@ const SHOW_PHOTO_STRIP = false
 const SHOW_SUSTAINABILITY = false
 const SHOW_MOBILE_EXTRA_COMMUNITY_CARDS = true
 
+// Single source of truth for brand logos — both mobile and desktop render from this.
+// desktopH: rendered height in px on desktop (scales via vw calc)
+// mobile: absolute position + size in the 393×290 Figma box. `null` = falls back to the flowing overflow grid below the box.
+const brands: {
+  src: string
+  alt: string
+  desktopH: number
+  mobile: { w: number; h: number; top: number; left: number } | null
+}[] = [
+  { src: '/brands/abril_aventura.svg', alt: 'Abril Aventura', desktopH: 65, mobile: { w: 90, h: 34, top: 27, left: 23 } },
+  { src: '/brands/big_agnes.png', alt: 'Big Agnes', desktopH: 117, mobile: { w: 76, h: 67, top: 11, left: 159 } },
+  { src: '/brands/calazo.png', alt: 'Calazo', desktopH: 144, mobile: { w: 81, h: 87, top: 0, left: 284 } },
+  { src: '/brands/carhartt.png', alt: 'Carhartt', desktopH: 102, mobile: { w: 88, h: 50, top: 118, left: 24 } },
+  { src: '/brands/darn_tough.png', alt: 'Darn Tough', desktopH: 130, mobile: { w: 74, h: 74, top: 111, left: 160 } },
+  { src: '/brands/devold.png', alt: 'Devold', desktopH: 25, mobile: { w: 84, h: 12, top: 143, left: 282 } },
+  { src: '/brands/dometic.png', alt: 'Dometic', desktopH: 58, mobile: { w: 93, h: 21, top: 247, left: 22 } },
+  { src: '/brands/fubuki.png', alt: 'Fubuki', desktopH: 85, mobile: { w: 89, h: 35, top: 240, left: 152 } },
+  { src: '/brands/helinox.png', alt: 'Helinox', desktopH: 85, mobile: { w: 89, h: 31, top: 242, left: 280 } },
+  { src: '/brands/hestra.png', alt: 'Hestra', desktopH: 58, mobile: null },
+  { src: '/brands/hydro_flask.png', alt: 'Hydro Flask', desktopH: 129, mobile: null },
+  { src: '/brands/klattermusen.png', alt: 'Klättermusen', desktopH: 68, mobile: null },
+  { src: '/brands/letherman.png', alt: 'Leatherman', desktopH: 25, mobile: null },
+  { src: '/brands/moraknil.png', alt: 'Morakniv', desktopH: 24, mobile: null },
+  { src: '/brands/msr.png', alt: 'MSR', desktopH: 55, mobile: null },
+  { src: '/brands/nalgene.png', alt: 'Nalgene', desktopH: 28, mobile: null },
+  { src: '/brands/poc.png', alt: 'POC', desktopH: 40, mobile: null },
+  { src: '/brands/primus.png', alt: 'Primus', desktopH: 30, mobile: null },
+  { src: '/brands/rab.png', alt: 'Rab', desktopH: 38, mobile: null },
+  { src: '/brands/silva.png', alt: 'Silva', desktopH: 28, mobile: null },
+  { src: '/brands/stanley.png', alt: 'Stanley', desktopH: 34, mobile: null },
+  { src: '/brands/thermarest.png', alt: 'Therm-a-Rest', desktopH: 25, mobile: null },
+  { src: '/brands/trangia.png', alt: 'Trangia', desktopH: 28, mobile: null },
+  { src: '/brands/uco.png', alt: 'UCO', desktopH: 32, mobile: null },
+  { src: '/brands/victorinox.png', alt: 'Victorinox', desktopH: 28, mobile: null },
+]
+
 const productPhotos = [
   { src: '/axe.jpg', alt: 'Axe' },
   { src: '/blanket-black_white.jpg', alt: 'Black and white blanket' },
   { src: '/hydration_sticks.jpg', alt: 'Hydration sticks' },
   { src: '/protein-bar.jpg', alt: 'Protein bar' },
   { src: '/spirulina.jpg', alt: 'Spirulina' },
+]
+
+// About intro — two paragraphs on mobile, joined into one on desktop.
+const aboutIntroParagraphs: string[] = [
+  'Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett hållbart liv.',
+  'Det är den outdoorbutik vi själva saknat med ett utbud av de varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra kontinenter.',
+]
+
+// Go Ghost prose — one source, rendered as line-broken sentences on desktop and joined into flowing paragraphs on mobile.
+const goGhostBlocks: string[][] = [
+  [
+    'Försvinn in i skogen, bergen och sjöarna.',
+    'In i vildmarkens vidder, vindar och vyer.',
+    'Uppslukas av äventyret eller av en stilla stund vid tjärnen.',
+    'Förlora dig i löpningen på stigen eller välj vägen minst vandrad.',
+    'Hänge dig åt cyklingen på gruset utmed älven.',
+    'Eller bemästra den med en kajak.',
+  ],
+  [
+    'Njut av åkning, utför berget, eller av toppturen upp.',
+    'Försvinn i sällskap eller in i dig själv.',
+    'Försjunk i dina tankar eller i samtalen kring elden.',
+  ],
+  [
+    'Gå till sömns under bar himmel eller in i tältet.',
+    'Omfamna kylan eller vänd tillbaka till stugan insvept i en filt med en kaffe vid kaminen.',
+  ],
+  [
+    'Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter.',
+    'Hänförs av naturens närvaro, mystik och magi.',
+  ],
+  ['Se bara till att ta med dig rätt kläder, utrustning och proviant.'],
 ]
 
 const conceptItems = [
@@ -130,15 +198,9 @@ export default function Home() {
             </div>
 
             <div className="space-y-4 px-6 pt-24 pb-24 text-center font-mono text-[15px] font-light leading-[19px] text-black">
-              <p>
-                Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
-                hållbart liv.
-              </p>
-              <p>
-                Det är den outdoorbutik vi själva saknat med ett utbud av de varumärken vi själva
-                använder och litar på för aktiviteter lika mycket i bygdens berg, skogar och
-                sjöar, som för större äventyr långt norröver och ibland på andra kontinenter.
-              </p>
+              {aboutIntroParagraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
 
             <div className="relative ml-auto w-[283px] aspect-[283/424] bg-neutral-200">
@@ -181,11 +243,7 @@ export default function Home() {
               sub={<span className="whitespace-nowrap">Outdoor&nbsp;Supply</span>}
               body={
                 <p className="text-center font-mono text-[13px] font-normal leading-[1.375] text-black">
-                  Moiwak är en idé sprungen ur fyra familjers kärlek till Järvsö, naturen och ett
-                  hållbart liv. Det är den outdoorbutik vi själva saknat med ett utbud av de
-                  varumärken vi själva använder och litar på för aktiviteter lika mycket i bygdens
-                  berg, skogar och sjöar, som för större äventyr långt norröver och ibland på andra
-                  kontinenter.
+                  {aboutIntroParagraphs.join(' ')}
                 </p>
               }
               bodyClassName="relative left-1/2 mt-[min(3.80vw,73px)] w-[min(38.59vw,741px)] -translate-x-1/2"
@@ -232,33 +290,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Brands — Mobile (3x3 grid, absolute-positioned to Figma) */}
+        {/* Brands — Mobile (Figma-positioned box + overflow grid for brands without a mobile position yet) */}
         <section id="brands-mobile" className="w-full bg-white py-20 lg:hidden">
           <div className="relative mx-auto h-[290px] w-[393px]">
-          {[
-            { src: '/brands/r1-c1.svg', alt: 'Abril Aventura', w: 90, h: 34, top: 27, left: 23 },
-            { src: '/brands/r1-c2.png', alt: 'Big Agnes', w: 76, h: 67, top: 11, left: 159 },
-            { src: '/brands/r1-c3.png', alt: 'Calazo', w: 81, h: 87, top: 0, left: 284 },
-            { src: '/brands/r1-c4.png', alt: 'Carhartt', w: 88, h: 50, top: 118, left: 24 },
-            { src: '/brands/r1-c5.png', alt: 'Darn Tough', w: 74, h: 74, top: 111, left: 160 },
-            { src: '/brands/r2-c1.png', alt: 'Devold', w: 84, h: 12, top: 143, left: 282 },
-            { src: '/brands/r2-c2.png', alt: 'Dometic', w: 93, h: 21, top: 247, left: 22 },
-            { src: '/brands/r2-c3.png', alt: 'Fubuki', w: 89, h: 35, top: 240, left: 152 },
-            { src: '/brands/r2-c4.png', alt: 'Helinox', w: 89, h: 31, top: 242, left: 280 },
-          ].map((logo) => (
-            <img
-              key={logo.src}
-              src={logo.src}
-              alt={logo.alt}
-              style={{
-                width: `${logo.w}px`,
-                height: `${logo.h}px`,
-                top: `${logo.top}px`,
-                left: `${logo.left}px`,
-              }}
-              className="absolute object-contain"
-            />
-          ))}
+            {brands.filter((b) => b.mobile).map((b) => (
+              <img
+                key={b.src}
+                src={b.src}
+                alt={b.alt}
+                style={{
+                  width: `${b.mobile!.w}px`,
+                  height: `${b.mobile!.h}px`,
+                  top: `${b.mobile!.top}px`,
+                  left: `${b.mobile!.left}px`,
+                }}
+                className="absolute object-contain"
+              />
+            ))}
+          </div>
+          <div className="mx-auto mt-8 grid w-[393px] grid-cols-3 gap-x-4 gap-y-8 px-6">
+            {brands.filter((b) => !b.mobile).map((b) => (
+              <div key={b.src} className="flex h-16 items-center justify-center">
+                <img src={b.src} alt={b.alt} className="max-h-full max-w-full object-contain" />
+              </div>
+            ))}
           </div>
         </section>
 
@@ -283,34 +338,16 @@ export default function Home() {
               </h2>
 
               <ul className="mt-28 grid grid-cols-5">
-                {[
-                  { src: '/brands/r1-c1.svg', h: 65 },
-                  { src: '/brands/r1-c2.png', h: 117 },
-                  { src: '/brands/r1-c3.png', h: 144 },
-                  { src: '/brands/r1-c4.png', h: 102 },
-                  { src: '/brands/r1-c5.png', h: 130 },
-                  { src: '/brands/r2-c1.png', h: 25 },
-                  { src: '/brands/r2-c2.png', h: 58 },
-                  { src: '/brands/r2-c3.png', h: 85 },
-                  { src: '/brands/r2-c4.png', h: 85 },
-                  { src: '/brands/r2-c5.png', h: 58 },
-                  { src: '/brands/r3-c1.png', h: 129 },
-                  { src: '/brands/r3-c2.png', h: 68 },
-                  null,
-                  null,
-                  null,
-                ].map((logo, i) => (
-                  <li key={i} className="flex h-40 items-center justify-center p-4 lg:h-[min(10.42vw,200px)]">
-                    {logo && (
-                      <img
-                        src={logo.src}
-                        alt=""
-                        style={{
-                          height: `min(${((logo.h / 1920) * 100).toFixed(2)}vw, ${logo.h}px)`,
-                        }}
-                        className="w-auto max-h-full max-w-full object-contain"
-                      />
-                    )}
+                {brands.map((b) => (
+                  <li key={b.src} className="flex h-40 items-center justify-center p-4 lg:h-[min(10.42vw,200px)]">
+                    <img
+                      src={b.src}
+                      alt={b.alt}
+                      style={{
+                        height: `min(${((b.desktopH / 1920) * 100).toFixed(2)}vw, ${b.desktopH}px)`,
+                      }}
+                      className="w-auto max-h-full max-w-full object-contain"
+                    />
                   </li>
                 ))}
               </ul>
@@ -353,28 +390,12 @@ export default function Home() {
               Go Ghost
             </h2>
 
-            <div className="mt-16 space-y-4 text-center font-mono text-[15px] font-normal leading-[19px] tracking-normal text-white [&_p+p]:mt-3.5">
-              <div>
-                <p>Försvinn in i skogen, bergen och sjöarna. In i vildmarkens vidder, vindar och vyer.</p>
-                <p>Uppslukas av äventyret eller av en stilla stund vid tjärnen.</p>
-                <p>Förlora dig i löpningen på stigen eller välj vägen minst vandrad.</p>
-                <p>Hänge dig åt cyklingen på gruset utmed älven. Eller bemästra den med en kajak.</p>
-              </div>
-              <div>
-                <p>Njut av åkning, utför berget, eller av toppturen upp. Försvinn i sällskap eller in i dig själv. Försjunk i dina tankar eller i samtalen kring elden.</p>
-              </div>
-              <div>
-                <p>
-                  Gå till sömns under bar himmel eller in i tältet. Omfamna kylan eller vänd
-                  tillbaka till stugan insvept i en filt med en kaffe vid kaminen.
-                </p>
-              </div>
-              <div>
-                <p>Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter. Hänförs av naturens närvaro, mystik och magi.</p>
-              </div>
-              <div>
-                <p>Se bara till att ta med dig rätt kläder, utrustning och proviant.</p>
-              </div>
+            <div className="mt-16 space-y-4 text-center font-mono text-[15px] font-normal leading-[19px] tracking-normal text-white">
+              {goGhostBlocks.map((block, i) => (
+                <div key={i}>
+                  <p>{block.join(' ')}</p>
+                </div>
+              ))}
             </div>
 
             <img
@@ -393,37 +414,13 @@ export default function Home() {
 
             {/* Paragraph (Figma y=337, left=589, w=741) */}
             <div className="absolute top-[min(17.55vw,337px)] left-[min(30.68vw,589px)] w-[min(38.59vw,741px)] space-y-6 text-center font-mono text-[min(0.83vw,16px)] font-normal leading-[1.375] text-white">
-              <div>
-                <p>Försvinn in i skogen, bergen och sjöarna.</p>
-                <p>In i vildmarkens vidder, vindar och vyer.</p>
-                <p>Uppslukas av äventyret eller av en stilla stund vid tjärnen.</p>
-                <p>Förlora dig i löpningen på stigen eller välj vägen minst vandrad.</p>
-                <p>Hänge dig åt cyklingen på gruset utmed älven.</p>
-                <p>Eller bemästra den med en kajak.</p>
-              </div>
-
-              <div>
-                <p>Njut av åkning, utför berget, eller av toppturen upp.</p>
-                <p>Försvinn i sällskap eller in i dig själv.</p>
-                <p>Försjunk i dina tankar eller i samtalen kring elden.</p>
-              </div>
-
-              <div>
-                <p>Gå till sömns under bar himmel eller in i tältet.</p>
-                <p>
-                  Omfamna kylan eller vänd tillbaka till stugan insvept i en filt med en kaffe vid
-                  kaminen.
-                </p>
-              </div>
-
-              <div>
-                <p>Gå vilse bland mossar och myrar för att hitta vad du så länge letat efter.</p>
-                <p>Hänförs av naturens närvaro, mystik och magi.</p>
-              </div>
-
-              <div>
-                <p>Se bara till att ta med dig rätt kläder, utrustning och proviant.</p>
-              </div>
+              {goGhostBlocks.map((block, i) => (
+                <div key={i}>
+                  {block.map((line, j) => (
+                    <p key={j}>{line}</p>
+                  ))}
+                </div>
+              ))}
             </div>
 
             {/* Ghost (Figma y=460, left=1751, 85x120) */}
