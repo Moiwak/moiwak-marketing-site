@@ -132,7 +132,7 @@ const communitySeasons = [
       {
         date: '26 juli kl 9.00-12.00',
         title: 'Klätterkurs med Karin Trolin',
-        body: 'Erfarna äventyraren och klättringsguiden Karin Trolin bördig från Forsa ger en kurser i klättring och forspaddling.',
+        body: 'Erfarna äventyraren och klättringsguiden Karin Trolin bördig från Forsa ger kurser i klättring och forspaddling.',
         linkLabel: 'www.explore61n.se',
         linkHref: 'https://www.explore61n.se/',
         media: { type: 'image' as const, src: '/images/general/mountain-climber.jpg' },
