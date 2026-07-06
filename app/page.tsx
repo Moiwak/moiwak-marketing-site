@@ -126,7 +126,8 @@ const communitySeasons = [
         body: 'Löpning till och från Järvsö klack. Start vid Moiwak. Fri frukost när vi kommer tillbaka och 10% rabatt i butiken hela dagen på hela sortimentet för alla som hänger med.',
         linkLabel: '@placeholder',
         linkHref: '#',
-        media: { type: 'video' as const, src: '/videos/jitter-run.mp4' },
+        media: { type: 'video' as const, src: '/videos/peppe-desktop.mp4' },
+        mediaMobile: { type: 'video' as const, src: '/videos/peppe-mobile.mp4' },
       },
       {
         date: '26 juli kl 9.00-12.00',
@@ -479,17 +480,17 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <div className="mt-16 border-t border-black" />
+                    <div className="mt-16" />
                   </div>
                 )}
 
                 {SHOW_MOBILE_EXTRA_COMMUNITY_CARDS && otherEvents.map((event) => {
-                  const media = 'media' in event ? event.media : undefined
+                  const media = 'mediaMobile' in event ? event.mediaMobile : 'media' in event ? event.media : undefined
                   const background = 'background' in event ? (event.background as string) : undefined
                   return (
                     <article
                       key={event.title}
-                      className="relative flex h-[320px] w-full flex-col overflow-hidden bg-black p-6 text-white"
+                      className="relative flex aspect-[3/2] w-full flex-col overflow-hidden bg-black p-6 text-white"
                     >
                       {media?.type === 'video' && (
                         <LazyVideo
@@ -521,16 +522,18 @@ export default function Home() {
                       />
                       <div
                         aria-hidden
-                        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-black/0 to-black/80"
+                        className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-b from-black/0 to-black/85"
                       />
 
-                      <p className="relative text-center font-mono text-[15px] font-normal leading-[19px] text-white/95">
-                        {event.date}
-                      </p>
+                      {media?.type !== 'video' && (
+                        <p className="relative text-center font-mono text-[15px] font-normal leading-[19px] text-white/95">
+                          {event.date}
+                        </p>
+                      )}
 
                       {media?.type !== 'video' && (
                         <div className="absolute right-6 bottom-6 left-6 space-y-2 text-center">
-                          <h3 className="font-sans text-[22px] font-normal leading-[1.05] tracking-[-0.02em]">
+                          <h3 className="font-sans text-[22px] font-normal leading-[1.0] tracking-tight">
                             {event.title}
                           </h3>
                           <p className="font-mono text-[13px] font-normal leading-[17px]">
