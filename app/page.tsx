@@ -439,7 +439,7 @@ export default function Home() {
           <h2 className="px-4 text-center font-sans text-[40px] font-normal leading-[34px] tracking-[-0.02em] text-black">
             Moiwak
             <br />
-            community
+            Community
           </h2>
 
           {(() => {
@@ -449,17 +449,17 @@ export default function Home() {
             return (
               <>
                 {paella && (
-                  <div className="px-4">
-                    <div className="mt-12 border-t border-black" />
+                  <div>
+                    <div className="mx-4 mt-12 border-t border-black" />
 
-                    <div className="mt-16 flex flex-col items-center gap-6 px-2 text-center font-mono text-[15px] font-normal leading-[19px] text-black">
+                    <div className="flex aspect-[3/2] w-full flex-col items-center justify-between bg-white px-6 py-4 text-center font-mono text-[13px] font-normal leading-[17px] text-black">
                       <p>{paella.date}</p>
-                      <div className="flex items-center justify-center gap-10 [&_img]:invert">
+                      <div className="flex items-center justify-center gap-8 [&_img]:invert">
                         <img
                           src="/illustrations/paella-pan.svg"
                           alt=""
                           aria-hidden
-                          style={{ width: 134, height: 102 }}
+                          style={{ width: 100, height: 76 }}
                         />
                         <img
                           src="/illustrations/paella-group.svg"
@@ -480,7 +480,6 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <div className="mt-16" />
                   </div>
                 )}
 
