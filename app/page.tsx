@@ -118,7 +118,7 @@ const communitySeasons = [
         title: 'Peters paella!',
         body: 'Under sommaren serverar Peter paella på gårdsplanen utanför butiken. Håll utkik efter datum här på sajten.',
         linkLabel: 'sardin.se',
-        linkHref: 'https://solnasardin.se/',
+        linkHref: 'https://sardinsolna.se/',
       },
       {
         date: '21 juli kl 8.00-10.00',
