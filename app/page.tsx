@@ -524,7 +524,7 @@ export default function Home() {
                         className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-b from-black/0 to-black/85"
                       />
 
-                      {media?.type !== 'video' && (
+                      {media?.type !== 'video' && event.title !== 'Klätterkurs med Karin Trolin' && (
                         <p className="relative text-center font-mono text-[15px] font-normal leading-[19px] text-white/95">
                           {event.date}
                         </p>
@@ -600,11 +600,6 @@ export default function Home() {
                           aria-hidden
                           className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-black/0 to-black/75"
                         />
-
-                        {/* Date — top of card */}
-                        <p className="relative text-center font-mono text-xs font-light text-white/90">
-                          {event.date}
-                        </p>
 
                         {/* Title — rotated 90° (reads bottom-to-top on the right edge) */}
                         <h3 className="absolute top-[14%] right-20 origin-right -translate-y-1/2 -rotate-90 font-sans text-[42px] font-normal leading-[1.0] tracking-tight text-left whitespace-nowrap text-white">
