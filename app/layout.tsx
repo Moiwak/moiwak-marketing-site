@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { SmoothScroll } from '@/components/smooth-scroll'
 
 export const metadata: Metadata = {
   title: 'Moiwak Outdoor Supply',
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" className="h-full antialiased">
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   )
 }
