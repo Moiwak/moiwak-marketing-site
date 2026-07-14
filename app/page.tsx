@@ -453,7 +453,9 @@ export default function Home() {
                     <div className="mx-4 mt-12 border-t border-black" />
 
                     <div className="flex aspect-[3/2] w-full flex-col items-center justify-between bg-white px-6 py-4 text-center font-mono text-[13px] font-normal leading-[17px] text-black">
-                      <p>{paella.date}</p>
+                      <p className="invisible" aria-hidden>
+                        {paella.date}
+                      </p>
                       <div className="flex items-center justify-center gap-8 [&_img]:invert">
                         <img
                           src="/illustrations/paella-pan.svg"
@@ -629,7 +631,9 @@ export default function Home() {
                       <>
                         {/* Date + illustrations pinned to the top */}
                         <div className="relative flex translate-x-2 flex-col items-center text-center">
-                          <p className="translate-y-2 font-mono text-xs font-light text-white">{event.date}</p>
+                          <p className="invisible translate-y-2 font-mono text-xs font-light text-white" aria-hidden>
+                            {event.date}
+                          </p>
 
                           <img
                             src="/illustrations/paella-pan.svg"
