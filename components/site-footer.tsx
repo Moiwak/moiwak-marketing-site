@@ -73,8 +73,8 @@ export function SiteFooter() {
           <p>Phone +46 70 271 87 84</p>
           <p><a href="mailto:info@moiwak.com" className="underline decoration-white/60 underline-offset-2">info@moiwak.com</a></p>
           <p className="mt-5">Öppettider</p>
-          <p>Juli och augusti: varje dag 11.00-16.00 samt till senare under eventkvällar på Stenegård.</p>
-          <p className="mt-5">Webshop lanseras under augusti.</p>
+          <p>Fredag-lördag 11.00-16.00 samt till senare under eventkvällar på Stenegård.</p>
+          <p className="mt-5">Webshop lanseras under hösten.</p>
           <SocialIcons className="mt-5" />
         </div>
       </div>
@@ -93,10 +93,10 @@ export function SiteFooter() {
 
           <div>
             <p>Öppettider</p>
-            <p>{'Juli och augusti: varje dag 11.00‑16.00 samt till senare under eventkvällar på Stenegård.'}</p>
+            <p>{'Fredag-lördag 11.00‑16.00 samt till senare under eventkvällar på Stenegård.'}</p>
           </div>
 
-          <p>Webshop lanseras under augusti.</p>
+          <p>Webshop lanseras under hösten.</p>
 
           <SocialIcons className="mt-2" />
         </div>
