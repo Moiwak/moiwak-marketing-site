@@ -1,3 +1,6 @@
+<!-- todo: moved to docs/todo.md on 2026-10-28. History only: never edit this file. -->
+> Moved: the open items are in [docs/todo.md](todo.md) since 2026-10-28 (`todo show`).
+
 # Marketing Site - Tasks
 
 Active work items. Future ideas go in `backlog.md`.
