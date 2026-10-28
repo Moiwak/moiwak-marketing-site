@@ -1,3 +1,6 @@
+<!-- todo: moved to docs/todo.md on 2026-10-28. History only: never edit this file. -->
+> Moved: the open items are in [docs/todo.md](todo.md) since 2026-10-28 (`todo show`).
+
 # Marketing Site - Backlog
 
 Items too early to schedule but worth remembering.
