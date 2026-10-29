@@ -17,12 +17,12 @@
 - [ ] 2026-10-28 (merged from docs/backlog.md) Email capture + welcome email via Resend
 - [ ] 2026-10-28 (merged from docs/backlog.md) Branded email template for all outgoing emails (Resend) - consistent look across welcome emails, newsletters, transactional emails
 - [ ] 2026-10-28 (merged from docs/backlog.md) Newsletter flow (Resend or another provider)
-- [ ] 2026-10-28 (merged from docs/backlog.md) Multilingual (Swedish primary + English?)
 - [ ] 2026-10-28 (merged from docs/backlog.md) Analytics events plan
 - [ ] 2026-10-28 (merged from docs/backlog.md) Performance budget (LCP, CLS, INP targets)
 - [ ] 2026-10-28 (merged from docs/backlog.md) Accessibility review at WCAG AA
 
 ## Done
+- [x] 2026-10-28 (merged from docs/backlog.md) Multilingual (Swedish primary + English?) - dropped 2026-10-29 by todo-sweep: duplicate of 6
 - [x] 2026-10-28 (merged from docs/backlog.md) Structured data (`Organization`, `WebSite`) - done 2026-10-29 by todo-sweep: moved to issue #5
 - [x] 2026-10-28 (merged from docs/backlog.md) Open Graph + Twitter Card images - done 2026-10-29 by todo-sweep: moved to issue #4
 - [x] 2026-10-28 (merged from docs/backlog.md) `sitemap.xml` + `robots.txt` - done 2026-10-29 by todo-sweep: moved to issue #3
